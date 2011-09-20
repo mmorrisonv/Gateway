@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx">
+	<fx:Script>
+		<![CDATA[
+			public var messages:Object;
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:VGroup paddingBottom="20" paddingTop="20" paddingLeft="20" paddingRight="20"
+			  height="100%" width="100%">
+			<s:HGroup width="100%">
+				<s:TextInput id="cardInput" width="100%"/>
+				<s:Button id="go" label="OK"/>
+				
+			</s:HGroup>
+			
+		
+			
+	</s:VGroup>
+</s:Group>
