@@ -10,8 +10,9 @@
 			public var messages:Object;
 			
 			static public var NEW_CARD_SWIPE:String = "NEW_CARD_SWIPE";
+		
 			
-			protected function cardInput_changeHandler(event:TextOperationEvent):void
+			protected function go_clickHandler(event:MouseEvent):void
 			{
 				var e:CustomEvent = new CustomEvent(NEW_CARD_SWIPE,cardInput.text,false);
 				dispatchEvent( e );
@@ -27,8 +28,9 @@
 	<s:VGroup paddingBottom="20" paddingTop="20" paddingLeft="20" paddingRight="20"
 			  height="100%" width="100%">
 			<s:HGroup width="100%">
-				<s:TextInput id="cardInput" width="100%" change="cardInput_changeHandler(event)"/>
-				<s:Button id="go" label="OK"/>
+				<s:TextInput id="cardInput" width="100%" />
+				<s:Button id="go" label="OK"
+						  click="go_clickHandler(event)"/>
 				
 			</s:HGroup>
 	</s:VGroup>
