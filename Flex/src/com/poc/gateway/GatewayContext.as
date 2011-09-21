@@ -1,25 +1,24 @@
 package com.poc.gateway
 {
+	import com.poc.gateway.controller.SwipeCommand;
+	import com.poc.gateway.controller.SwipeCommandTriggerEvent;
+	import com.poc.gateway.model.GatewayModel;
+	import com.poc.gateway.view.SwipeEntryMediator;
+	import com.poc.gateway.view.SwipeEntryPanel;
+	
 	import flash.display.DisplayObjectContainer;
 	
 	import org.robotlegs.mvcs.Context;
-	import com.poc.gateway.view.GatewayView;
-	import com.poc.gateway.view.GatewayMediator;
-	import com.poc.gateway.model.GatewayModel;
 	
 	public class GatewayContext extends Context
 	{
-		public function GatewayContext(contextView:DisplayObjectContainer=null, autoStartup:Boolean=true)
-		{
-			super();
-		}
-		
 		override public function startup():void
 		{
-			
 			injector.mapSingleton(GatewayModel);
+			mediatorMap.mapView(SwipeEntryPanel,SwipeEntryMediator);
 			
-			mediatorMap.mapView(GatewayView,GatewayMediator);
+			this.commandMap.mapEvent(SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,SwipeCommand);
+			
 			super.startup();
 		}
 	}

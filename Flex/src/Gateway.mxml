@@ -8,8 +8,8 @@
 	
 	<s:VGroup width="100%" height="100%" >
 		<s:HGroup width="100%" height="100%">
-			<view:EmployeeList paddingTop="10" paddingRight="20" />
-			<view:GatewayView width="100%" height="100%"/>
+			<view:EntryLog paddingTop="10" paddingRight="20" />
+			<view:SwipeEntryPanel width="100%" height="100%"/>
 		</s:HGroup>
 	</s:VGroup>
 	
