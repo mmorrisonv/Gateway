@@ -14,8 +14,7 @@ package com.poc.gateway.model
 	
 	public class GatewayModel extends Actor
 	{
-		private var _entries:Array = [];
-		private var _entryCount:uint = 0;
+		public var _entries:ArrayCollection = new ArrayCollection();
 		
 		public var Employees:ArrayCollection = new ArrayCollection();
 		
@@ -54,7 +53,7 @@ package com.poc.gateway.model
 		}
 		public function setupLog()
 		{
-			var date : Date = new Date();;
+			var date : Date = new Date();
 			var filename = 'event' + date.getTime();
 			var file:File = File.documentsDirectory.resolvePath(filename);
 			var fileStream:FileStream = new FileStream();
@@ -62,31 +61,7 @@ package com.poc.gateway.model
 			fileStream.writeUTF("test");
 			fileStream.close();
 		}
-		public function set addNewEtry1(value:String):void
-		{
-			_entries.push(value);
-			_entryCount = _entries.length;
-			dispatch( new EntryEvent(EntryEvent.ENTRYLIST_UPDATED) );
-		}
-		
-		public function get entries():Array
-		{
-			return _entries;
-		}
-		
-		public function set entries(value:Array):void
-		{
-			_entries = value;
-		}
-		public function get entryCount():uint
-		{
-			return _entryCount;
-		}
-		
-		public function set entryCount(value:uint):void
-		{
-			_entryCount = value;
-		}
+
 		
 		
 	}

@@ -1,6 +1,7 @@
 package com.poc.gateway.controller
 {
 	import com.poc.gateway.model.GatewayModel;
+	import com.poc.gateway.vo.EntryVO;
 	import com.poc.gateway.vo.PersonVO;
 	
 	import org.robotlegs.mvcs.Command;
@@ -16,15 +17,22 @@ package com.poc.gateway.controller
 			{
 				var validSwipe = false;
 				//check against valid cards
-				for each( var Employee:PersonVO in this.model.Employees ){
-					if(Employee.cardID == event.cardID)
+				for each( var employee:PersonVO in this.model.Employees ){
+					if(employee.cardID == event.cardID)
 						validSwipe = true;
 				}
 				
-				//if valid card, add to entryfile
+				var entry : EntryVO = new EntryVO();
+				var date:Date = new Date();
+				entry.cardID = event.cardID;
+				entry.time = date.getTime();
+				entry.success = false;
 				
-				//add cardID to entries array on model
-				// 
+				if(validSwipe)
+				{
+					entry.success = true;
+				}
+				this.model._entries.addItem(entry);
 			}
 		}
 		
