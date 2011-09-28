@@ -9,7 +9,7 @@ package com.poc.gateway.vo
 		public var cardID : String;
 		public var time : Number;
 		public var success : Boolean;
-		
+		public var person : PersonVO;
 	}
 	
 }

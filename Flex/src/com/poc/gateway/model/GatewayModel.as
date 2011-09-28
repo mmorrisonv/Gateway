@@ -2,11 +2,14 @@ package com.poc.gateway.model
 {
 	import com.adobe.serialization.json.JSON;
 	import com.poc.gateway.events.EntryEvent;
+	import com.poc.gateway.vo.EntryVO;
 	import com.poc.gateway.vo.PersonVO;
 	
+	import flash.events.Event;
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
+	import flash.utils.Timer;
 	
 	import mx.collections.ArrayCollection;
 	
@@ -21,6 +24,23 @@ package com.poc.gateway.model
 		private var employeeFile:File;
 		private var entryFile:File;
 		
+		private var _lastSwipe:EntryVO;
+		
+		private var time:Timer;
+		
+		public function set lastSwipe(param:EntryVO):void
+		{
+			this._lastSwipe = param;
+			var e : ModelEvent = new ModelEvent(
+				ModelEvent.VALID_SWIPE);
+			dispatch( e );
+		}
+		
+		public function get lastSwipe():EntryVO
+		{
+			
+			return _lastSwipe;
+		}
 		public function GatewayModel()
 		{
 			readEmployees();

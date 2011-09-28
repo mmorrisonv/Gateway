@@ -33,5 +33,12 @@
 						  click="go_clickHandler(event)"/>
 				
 			</s:HGroup>
+		
+			<s:HGroup width="100%">
+				<s:Label id="secondsDisp" width="100%" />
+				<s:Label id="minuteDisp" width="100%" />
+				<s:Label id="hourDisp" width="100%" />
+			</s:HGroup>
 	</s:VGroup>
+
 </s:Group>
