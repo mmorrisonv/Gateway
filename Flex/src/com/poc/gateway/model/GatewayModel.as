@@ -26,14 +26,40 @@ package com.poc.gateway.model
 		
 		private var _lastSwipe:EntryVO;
 		
-		private var time:Timer;
+/*		private var time:Timer;
+		private var currentTime:Date;
+		public function set lastSwipe(param:EntryVO):void
+		{
+			
+			this.currentTime = param;
+			var e : ModelEvent = new ModelEvent(
+				ModelEvent.VALID_SWIPE);
+			dispatch( e );
+		}
+		
+		}*/
+		private var _currentSwipeInspection:EntryVO;
+
+		public function get currentSwipeInspection():EntryVO
+		{
+			return _currentSwipeInspection;
+		}
+
+		public function set currentSwipeInspection(value:EntryVO):void
+		{
+			_currentSwipeInspection = value;
+			var e : ModelEvent = new ModelEvent(
+				ModelEvent.CURRENT_INSPECTION_CHANGED);
+			dispatch( e );
+		}
+		
 		
 		public function set lastSwipe(param:EntryVO):void
 		{
 			this._lastSwipe = param;
 			var e : ModelEvent = new ModelEvent(
 				ModelEvent.VALID_SWIPE);
-			dispatch( e );
+				dispatch( e );
 		}
 		
 		public function get lastSwipe():EntryVO

@@ -8,8 +8,15 @@
 			
 			import spark.events.TextOperationEvent;
 			
+			
+			private var timer : Timer;
+			var secondsSinceStart : int;
+			
 			protected function group1_creationCompleteHandler(event:FlexEvent):void
 			{
+				
+				timer = new Timer(1000,0);
+				this.timer.addEventListener(TimerEvent.TIMER,this.onTimeUpdated);
 				this.hourDisp.text = "00";
 				this.minuteDisp.text = "00";
 				this.secondsDisp.text = "00";
@@ -19,6 +26,21 @@
 			{
 				
 				
+			}
+			
+			protected function start_clickHandler(event:MouseEvent):void
+			{
+				this.timer.start();
+				
+			}
+			
+			protected function onTimeUpdated(event:TimerEvent):void
+			{
+				var currDate:Date =new Date() ;
+				this.secondsSinceStart++;
+				this.secondsDisp.text = Math.floor( (this.secondsSinceStart%60) ).toString();
+				this.minuteDisp.text = Math.floor( ( (this.secondsSinceStart/60)%60 ) ).toString();
+				this.hourDisp.text = Math.floor(  (this.secondsSinceStart/(60*60))%24 ).toString();
 			}
 			
 		]]>
@@ -36,12 +58,13 @@
 		</s:HGroup>
 		
 		<s:HGroup width="100%">
-			<s:Label id="secondsDisp"  />
+			<s:Label id="hourDisp"  />
 			<s:Label text=":"/>
 			<s:Label id="minuteDisp"  />
 			<s:Label text=":"/>
-			<s:Label id="hourDisp"  />
+			<s:Label id="secondsDisp"  />
 		</s:HGroup>
+		<s:Button label="Start Event" click="start_clickHandler(event)"/>
 	</s:VGroup>
 	
 </s:Group>

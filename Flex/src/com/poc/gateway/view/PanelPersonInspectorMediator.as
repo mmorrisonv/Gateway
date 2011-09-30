@@ -20,14 +20,16 @@ package  com.poc.gateway.view
 		override public function onRegister():void
 		{
 			
-			eventMap.mapListener(eventDispatcher,ModelEvent.VALID_SWIPE,onNewSwipe );
+			eventMap.mapListener(eventDispatcher,ModelEvent.CURRENT_INSPECTION_CHANGED,onNewInspection );
 			
 		}
 		
-		protected function onNewSwipe(event:ModelEvent):void
+		protected function onNewInspection(event:ModelEvent):void
 		{
 			// Someone has swiped a card - show the personVO
-			ui.pname.text = this.model.lastSwipe.person.Name;
+			ui.pname.text = this.model.currentSwipeInspection.person.Name;
+			ui.swipeTime.text = this.model.currentSwipeInspection.time;
+			ui.rate.text = this.model.currentSwipeInspection.person.Rate;
 			
 	
 		}

@@ -44,8 +44,7 @@
 				//this.lblCount.text = this.layer.type; 
 				if (this.selected == false && this.currentState == 'selected' )
 					this.currentState = ''; 
-				
-		
+				//this.entry.success
 
 			}
 			
@@ -100,7 +99,16 @@
 		</s:fill>
 	</s:Rect>
 	
-	 
+	<s:Group>
+		<s:Rect id="bgStatus" width="100%" height="100%">
+			<s:fill>
+				<s:SolidColor color="0x567E3A"
+							  color.hovered="0xe7e7e7"
+							  color.selected="0xeeeeee"/>
+			</s:fill>
+		</s:Rect>
+	</s:Group>
+	
 	<s:Group width="100%" verticalCenter="0">
 		
 		<!--<s:Label id="lblName" text="{txtText}" styleName="grayTxt Arial"

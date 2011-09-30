@@ -38,8 +38,13 @@ package com.poc.gateway.controller
 				{
 					entry.success = true;
 					this.model.lastSwipe = entry;
+					this.model._entries.addItem(entry);
 				}
-				this.model._entries.addItem(entry);
+				else
+				{
+					
+				}
+				
 			}
 		}
 		

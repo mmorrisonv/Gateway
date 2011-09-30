@@ -2,6 +2,23 @@
 <s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		  xmlns:s="library://ns.adobe.com/flex/spark" 
 		  xmlns:mx="library://ns.adobe.com/flex/mx">
+	<fx:Script>
+		<![CDATA[
+			import com.poc.gateway.events.CustomEvent;
+			
+			import spark.events.IndexChangeEvent;
+			
+			static public var LIST_CHANGED:String = "LIST_CHANGED";
+			
+			protected function entryLog_changeHandler(event:IndexChangeEvent):void
+			{
+				
+				if( event.newIndex != -1)
+					this.dispatchEvent( new CustomEvent(LIST_CHANGED,event.newIndex) );
+			}
+			
+		]]>
+	</fx:Script>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -13,7 +30,8 @@
 	<s:List id="entryLog" width="100%"
 			borderVisible="false"
 			itemRenderer="com.poc.gateway.view.EntryLogItemRenderer"
-			labelField="cardID">
+			labelField="cardID"
+			change="entryLog_changeHandler(event)">
 		<s:layout>
 			<s:VerticalLayout gap="0" paddingBottom="0" paddingLeft="0" paddingRight="0"/>
 		</s:layout>
