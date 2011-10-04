@@ -5,7 +5,15 @@
 					   width="800" height="400">
 	<fx:Declarations>
 		<gateway:GatewayContext contextView="{this}"/>
+	
 	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			
+			
+			styleManager.loadStyleDeclarations("assets/style/fonts.swf");			
+		]]>
+	</fx:Script>
 				<s:Rect width="100%" height="100%">
 				<s:fill>
 					<s:RadialGradient rotation="90" x="100" y="0">
