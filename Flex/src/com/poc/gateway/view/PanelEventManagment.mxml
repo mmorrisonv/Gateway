@@ -39,8 +39,14 @@
 				var currDate:Date =new Date() ;
 				this.secondsSinceStart++;
 				this.secondsDisp.text = Math.floor( (this.secondsSinceStart%60) ).toString();
+				if(this.secondsDisp.text.length == 1)
+					this.secondsDisp.text = "0" + this.secondsDisp.text
 				this.minuteDisp.text = Math.floor( ( (this.secondsSinceStart/60)%60 ) ).toString();
+				if(this.minuteDisp.text.length == 1)
+					this.minuteDisp.text = "0" + this.minuteDisp.text
 				this.hourDisp.text = Math.floor(  (this.secondsSinceStart/(60*60))%24 ).toString();
+				if(this.hourDisp.text.length == 1)
+					this.hourDisp.text = "0" + this.hourDisp.text
 			}
 			
 		]]>

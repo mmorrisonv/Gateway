@@ -12,10 +12,10 @@ package  com.poc.gateway.view
 	
 	import org.robotlegs.mvcs.Mediator;
 	
-	public class LastSwipeInspectorMediator extends Mediator
+	public class PanelPersonInspectorMediator extends Mediator
 	{
 		[Inject]public var model:GatewayModel;
-		[Inject]public var ui:LastSwipeInspectorPanel;
+		[Inject]public var ui:PanelPersonInspector;
 		
 		override public function onRegister():void
 		{
@@ -28,8 +28,8 @@ package  com.poc.gateway.view
 		{
 			// Someone has swiped a card - show the personVO
 			ui.pname.text = this.model.currentSwipeInspection.person.Name;
-			ui.swipeTime.text = this.model.currentSwipeInspection.time;
-			ui.rate.text = this.model.currentSwipeInspection.person.Rate;
+			ui.swipeTime.text = this.model.currentSwipeInspection.time.toString();
+			ui.rate.text = this.model.currentSwipeInspection.person.Rate.toString();
 			
 	
 		}

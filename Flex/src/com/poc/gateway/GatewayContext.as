@@ -8,6 +8,8 @@ package com.poc.gateway
 	
 	import flash.display.DisplayObjectContainer;
 	
+	import mx.containers.Panel;
+	
 	import org.robotlegs.mvcs.Context;
 	
 	public class GatewayContext extends Context
@@ -19,6 +21,7 @@ package com.poc.gateway
 			mediatorMap.mapView(SwipeEntryPanel,SwipeEntryMediator);
 			mediatorMap.mapView(EntryLog,EntryLogMediator);
 			mediatorMap.mapView(LastSwipeInspectorPanel,LastSwipeInspectorMediator);
+			mediatorMap.mapView(PanelPersonInspector,PanelPersonInspectorMediator);
 			
 			this.commandMap.mapEvent(SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,SwipeCommand);
 			
