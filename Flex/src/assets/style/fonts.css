@@ -6,3 +6,10 @@
 	src:url("assets/fonts/FuturaStd-Condensed.otf");
 	fontFamily:"Futura";
 }
+
+global
+{
+	font-family: "Futura";
+	color:#151517;
+	/*	typographicCase:uppercase;*/
+}

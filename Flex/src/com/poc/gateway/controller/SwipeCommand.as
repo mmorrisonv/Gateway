@@ -37,8 +37,12 @@ package com.poc.gateway.controller
 				if(validSwipe)
 				{
 					entry.success = true;
+					entry.present = !entry.present;
 					this.model.lastSwipe = entry;
-					this.model._entries.addItem(entry);
+					if(entry.present)
+						this.model._entries.addItem(entry);
+					else
+						this.model._entries
 				}
 				else
 				{

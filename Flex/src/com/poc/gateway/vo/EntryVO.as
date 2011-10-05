@@ -10,6 +10,7 @@ package com.poc.gateway.vo
 		public var time : Number;
 		public var success : Boolean;
 		public var person : PersonVO;
+		public var present:Boolean;
 	}
 	
 }

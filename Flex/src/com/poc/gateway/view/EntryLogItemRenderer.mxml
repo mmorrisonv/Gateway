@@ -35,15 +35,14 @@
 			
 			public function updateItemRenderer(e:Event=null)  : void
 			{
-				txtLbl.text = this.entry.cardID 
-				/*
-				txtPrice.text = '$'+this.layer.cost.toFixed(2)
-				if ( this.layer.cost == 0  || isNaN( this.layer.cost ) ) 
-					this.txtPrice.text = '';
-					*/
-				//this.lblCount.text = this.layer.type; 
+				txtLbl.text = this.entry.cardID + ' - ' + this.entry.person.Name; 
 				if (this.selected == false && this.currentState == 'selected' )
 					this.currentState = ''; 
+				
+				if( this.entry.present == true  )
+					rectSignedIn.color = 0xa1067e;
+				else
+					rectSignedIn.color = 0x0661a;
 				//this.entry.success
 
 			}
@@ -60,8 +59,6 @@
 			protected function group1_creationCompleteHandler(event:FlexEvent):void
 			{
 				this.creationComplete = true
-				// TODO Auto-generated method stub
-				//this.lblName.text = this._labelText
 				this.labelText = this._labelText; 
 			}
 			
@@ -110,10 +107,12 @@
 	</s:Group>
 	
 	<s:Group width="100%" verticalCenter="0">
-		
-		<!--<s:Label id="lblName" text="{txtText}" styleName="grayTxt Arial"
-				 color.selected="0"
-				 left="0" y="4"/>-->
+		<s:Rect  width="4" height="100%">
+			<s:fill>
+				<s:SolidColor id="rectRate" color="0x567E3A"/>
+			</s:fill>
+		</s:Rect>
+
 		<s:Label id="txtLbl" x="5" width="120" maxHeight="28" color="0" fontSize="12" verticalCenter="0"
 				 color.hovered="0x545454"
 				 color.selected="0" styleName="grayTxt Arial" />
@@ -122,7 +121,11 @@
 
 		</s:HGroup>
 		
-
+		<s:Rect  width="4" height="100%" right="0">
+			<s:fill>
+				<s:SolidColor id="rectSignedIn" color="0x567E3A"/>
+			</s:fill>
+		</s:Rect>
 		
 	</s:Group>
 	
