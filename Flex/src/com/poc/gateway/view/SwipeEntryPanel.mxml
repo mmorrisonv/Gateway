@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx">
+		 xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="group1_creationCompleteHandler(event)">
 	<fx:Script>
 		<![CDATA[
 			import com.poc.gateway.events.CustomEvent;
+			
+			import mx.events.FlexEvent;
 			
 			import spark.events.TextOperationEvent;
 			public var messages:Object;
@@ -12,10 +14,16 @@
 			static public var NEW_CARD_SWIPE:String = "NEW_CARD_SWIPE";
 		
 			
-			protected function go_clickHandler(event:MouseEvent):void
+			protected function go_clickHandler(event:Event):void
 			{
 				var e:CustomEvent = new CustomEvent(NEW_CARD_SWIPE,cardInput.text,false);
 				dispatchEvent( e );
+				
+			}
+			
+			protected function group1_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.cardInput.setFocus();
 				
 			}
 			
@@ -26,9 +34,10 @@
 	</fx:Declarations>
 	
 	<s:VGroup paddingBottom="20" paddingTop="20" paddingLeft="20" paddingRight="20"
-			  height="100%" width="100%">
+			  height="100%" width="400">
 			<s:HGroup width="100%">
-				<s:TextInput id="cardInput" width="100%" />
+				<s:TextInput id="cardInput" width="100%" enter="go_clickHandler(event)" height="40" 
+							 fontSize="16" fontWeight="bold"/>
 				<s:Button id="go" label="OK"
 						  click="go_clickHandler(event)"
 						  

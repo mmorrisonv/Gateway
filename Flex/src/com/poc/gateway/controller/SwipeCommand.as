@@ -5,6 +5,7 @@ package com.poc.gateway.controller
 	import com.poc.gateway.vo.PersonVO;
 	
 	import org.robotlegs.mvcs.Command;
+	import flash.events.Event;
 	
 	public class SwipeCommand extends Command
 	{
@@ -30,12 +31,20 @@ package com.poc.gateway.controller
 				//look for this entry - means swipe out
 				for each(var entry:EntryVO in this.model._entries)
 				{
-					if(entry.cardID == event.cardID)
+					if(entry.cardID == event.cardID )
 					{
+						if(entry.present == true){
 						entry.present = false;
-						
+						entry.updated();
 						return;
+						}
+						else{
+							entry.present = true;
+							entry.updated();
+							return;
+						}
 					}
+					
 						
 				}
 				

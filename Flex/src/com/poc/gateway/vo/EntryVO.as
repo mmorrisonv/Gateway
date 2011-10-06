@@ -1,6 +1,7 @@
 package com.poc.gateway.vo
 {
 	import flash.events.EventDispatcher;
+	import flash.events.Event;
 
 	public class EntryVO extends EventDispatcher
 	{
@@ -11,6 +12,10 @@ package com.poc.gateway.vo
 		public var success : Boolean;
 		public var person : PersonVO;
 		public var present:Boolean;
+		
+		public function updated():void{
+			this.dispatchEvent(new Event(EntryVO.UPDATED));
+		}
 	}
 	
 }

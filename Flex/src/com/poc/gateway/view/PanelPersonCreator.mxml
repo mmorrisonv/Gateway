@@ -2,7 +2,7 @@
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
 		 xmlns:mx="library://ns.adobe.com/flex/mx"
-		 width="140">
+		 width="210">
 	
 	<fx:Script>
 		<![CDATA[
@@ -35,13 +35,13 @@
 		
 		<s:Label text="Person Creator"/>
 		<s:Image id="image"/>
-		<mx:HBox><s:Label text="Name: "/><s:TextInput id="pname" /></mx:HBox>
-		<mx:HBox><s:Label text="Card Number or ID: "/><s:TextInput id="pID" /></mx:HBox>
-		<mx:HBox><s:Label text="Rate: "/><s:TextInput id="pRate" /></mx:HBox>
+		<mx:HBox><s:TextInput id="pname"  text="Name "/></mx:HBox>
+		<mx:HBox><s:TextInput id="pID" text="Card Number or ID "/></mx:HBox>
+		<mx:HBox><s:TextInput id="pRate" text="Rate "/></mx:HBox>
 		
-		<mx:HBox><s:Label text="Phone: "/><s:TextInput id="phone" /></mx:HBox>
-		<mx:HBox><s:Label text="Email: "/><s:TextInput id="email" /></mx:HBox>
+		<mx:HBox><s:TextInput id="phone" text="Phone "/></mx:HBox>
+		<mx:HBox><s:TextInput id="email" text="Email "/></mx:HBox>
 		
-		<s:Button name="Save New" click="onAddNew_clickHandler(event)"/>
+		<s:Button label="Save New" click="onAddNew_clickHandler(event)"/>
 	</mx:VBox>
 </s:Group>

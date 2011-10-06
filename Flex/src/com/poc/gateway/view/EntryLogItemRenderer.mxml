@@ -40,9 +40,9 @@
 					this.currentState = ''; 
 				
 				if( this.entry.present == true  )
-					rectSignedIn.color = 0xa1067e;
+					rectSignedIn.color = 0x567E3A;
 				else
-					rectSignedIn.color = 0x0661a;
+					rectSignedIn.color = 0xcccccc;
 				//this.entry.success
 
 			}
