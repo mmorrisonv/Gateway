@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 width="140">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.poc.gateway.events.CustomEvent;
+			import com.poc.gateway.vo.PersonVO;
+			
+			//event strings
+			static public var NEW_PERSON:String = "NEW_PERSON";
+			
+			protected function onAddNew_clickHandler(event:MouseEvent):void
+			{
+				var newPerson:PersonVO = new PersonVO;
+				var date:Date = new Date();
+				newPerson.created = date.getTime();
+				newPerson.deleted = 0;
+				newPerson.Name = this.pname.text;
+				newPerson.cardID = this.pID.text;
+				newPerson.Rate = int( this.pRate.text );
+				
+				var e:CustomEvent = new CustomEvent(NEW_PERSON,newPerson,false);
+				dispatchEvent( e );
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<mx:VBox>
+		
+		<s:Label text="Person Creator"/>
+		<s:Image id="image"/>
+		<mx:HBox><s:Label text="Name: "/><s:TextInput id="pname" /></mx:HBox>
+		<mx:HBox><s:Label text="Card Number or ID: "/><s:TextInput id="pID" /></mx:HBox>
+		<mx:HBox><s:Label text="Rate: "/><s:TextInput id="pRate" /></mx:HBox>
+		
+		<mx:HBox><s:Label text="Phone: "/><s:TextInput id="phone" /></mx:HBox>
+		<mx:HBox><s:Label text="Email: "/><s:TextInput id="email" /></mx:HBox>
+		
+		<s:Button name="Save New" click="onAddNew_clickHandler(event)"/>
+	</mx:VBox>
+</s:Group>

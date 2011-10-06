@@ -32,11 +32,12 @@
 				<view:SwipeEntryPanel width="100%" height="100%"/>
 				<view:PanelEventManagment width="100%" height="100%"/>
 			</s:VGroup>
-			<s:VGroup>
-				<view:LastSwipeInspectorPanel height="50%" />
-				<view:PanelPersonInspector height="50%"/>
-			</s:VGroup>
 			
+			<s:VGroup>
+				<view:LastSwipeInspectorPanel height="100" />
+				<view:PanelPersonInspector height="100"/>
+				<view:PanelPersonCreator height="250"/>
+			</s:VGroup>
 			
 			
 		</s:HGroup>

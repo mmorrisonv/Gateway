@@ -11,5 +11,7 @@ package com.poc.gateway.vo
 		public var cardID : String;
 		public var Name : String;
 		public var Rate : Number;
+		public var created:Number;
+		public var deleted:Number;
 	}
 }

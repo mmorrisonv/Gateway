@@ -91,10 +91,40 @@ package com.poc.gateway.model
 				var employee:PersonVO = new PersonVO;
 				employee.Name = employeeImport.name
 				employee.cardID = employeeImport.cardid;
-				employee.Rate = 5
+				employee.Rate = 5;
+				employee.created = employeeImport.created;
+				employee.deleted = employeeImport.deleted;
+					
 				this.Employees.addItem(employee);
 			}
 			
+			fileStream.close();
+		}
+		public function writeEmployees()
+		{
+			
+			
+			var file:File = File.documentsDirectory.resolvePath("employeesOUT.txt");
+			var fileStream:FileStream = new FileStream();
+			
+			var export:Object = new Object();
+			export.Employees = new Array();
+			for each(var person:PersonVO in this.Employees)
+			{
+				var newperson:Object = new Object();
+				newperson.name = person.Name;
+				newperson.cardid = person.cardID;
+				newperson.rate = person.Rate;
+				newperson.created = person.created;
+				newperson.deleted = person.deleted;
+				
+				(export.Employees as Array).push(newperson);
+			}
+			
+			var exportstring:String = JSON.encode(export);
+			
+			fileStream.open(file, FileMode.WRITE);
+			fileStream.writeUTF(exportstring);
 			fileStream.close();
 		}
 		public function setupLog()
@@ -103,9 +133,9 @@ package com.poc.gateway.model
 			var filename = 'event' + date.getTime();
 			var file:File = File.documentsDirectory.resolvePath(filename);
 			var fileStream:FileStream = new FileStream();
-			fileStream.open(file, FileMode.WRITE);
+			/*fileStream.open(file, FileMode.WRITE);
 			fileStream.writeUTF("test");
-			fileStream.close();
+			fileStream.close();*/
 		}
 
 		

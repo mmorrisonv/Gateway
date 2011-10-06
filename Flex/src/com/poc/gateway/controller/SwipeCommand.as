@@ -27,6 +27,18 @@ package com.poc.gateway.controller
 					}
 				}
 				
+				//look for this entry - means swipe out
+				for each(var entry:EntryVO in this.model._entries)
+				{
+					if(entry.cardID == event.cardID)
+					{
+						entry.present = false;
+						
+						return;
+					}
+						
+				}
+				
 				var entry : EntryVO = new EntryVO();
 				var date:Date = new Date();
 				entry.cardID = event.cardID;
@@ -37,12 +49,10 @@ package com.poc.gateway.controller
 				if(validSwipe)
 				{
 					entry.success = true;
-					entry.present = !entry.present;
+					entry.present = true;
 					this.model.lastSwipe = entry;
-					if(entry.present)
-						this.model._entries.addItem(entry);
-					else
-						this.model._entries
+					this.model._entries.addItem(entry);
+		
 				}
 				else
 				{

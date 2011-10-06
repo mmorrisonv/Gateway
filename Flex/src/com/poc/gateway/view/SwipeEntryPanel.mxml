@@ -30,7 +30,9 @@
 			<s:HGroup width="100%">
 				<s:TextInput id="cardInput" width="100%" />
 				<s:Button id="go" label="OK"
-						  click="go_clickHandler(event)"/>
+						  click="go_clickHandler(event)"
+						  
+						  />
 				
 			</s:HGroup>
 		
