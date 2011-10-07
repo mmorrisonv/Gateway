@@ -4,6 +4,11 @@ package com.poc.gateway.vo
 	{
 		public function RoleVO()
 		{
+		
 		}
+		public var Name : String;
+		public var Rate : Number;
+		public var Index: Number;
+		
 	}
 }

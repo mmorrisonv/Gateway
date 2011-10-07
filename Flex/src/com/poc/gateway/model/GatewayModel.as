@@ -4,6 +4,7 @@ package com.poc.gateway.model
 	import com.poc.gateway.events.EntryEvent;
 	import com.poc.gateway.vo.EntryVO;
 	import com.poc.gateway.vo.PersonVO;
+	import com.poc.gateway.vo.RoleVO;
 	
 	import flash.events.Event;
 	import flash.filesystem.File;
@@ -20,6 +21,7 @@ package com.poc.gateway.model
 		public var _entries:ArrayCollection = new ArrayCollection();
 		
 		public var Employees:ArrayCollection = new ArrayCollection();
+		public var Roles:ArrayCollection = new ArrayCollection();
 		
 		private var employeeFile:File;
 		private var entryFile:File;
@@ -95,6 +97,30 @@ package com.poc.gateway.model
 				employee.created = employeeImport.created;
 				employee.deleted = employeeImport.deleted;
 					
+				this.Employees.addItem(employee);
+			}
+			
+			fileStream.close();
+			
+			file = File.documentsDirectory.resolvePath("employees.txt");
+			fileStream = new FileStream();
+			fileStream.open(file, FileMode.READ);
+			try{
+				rawJSON = fileStream.readUTFBytes(fileStream.bytesAvailable);
+			}
+			catch(e:Error){
+				
+			}
+			if(rawJSON != null)
+				_json = JSON.decode(rawJSON);
+			
+			for each( var roleImport:Object in _json.roles  )
+			{
+				var role:RoleVO = new RoleVO();
+				role.Name = roleImport.label
+				role.Index = roleImport.index;
+				role.Rate = roleImport.rate;
+				
 				this.Employees.addItem(employee);
 			}
 			
