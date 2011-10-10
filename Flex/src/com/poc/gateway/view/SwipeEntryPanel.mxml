@@ -33,23 +33,22 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	
-	<s:VGroup paddingBottom="20" paddingTop="20" paddingLeft="20" paddingRight="20"
-			  height="100%" width="400">
+	<s:VGroup paddingTop="20" height="100%" width="400">
 			<s:HGroup width="100%">
-				<s:TextInput id="cardInput" width="100%" enter="go_clickHandler(event)" height="40" 
+				<s:TextInput id="cardInput" width="100%"  height="40" 
+							 enter="go_clickHandler(event)"  
 							 fontSize="16" fontWeight="bold"/>
-				<s:Button id="go" label="OK"
-						  click="go_clickHandler(event)"
-						  
-						  />
-				
+				<s:Group width="20" height="40"  id="go" 
+						  click="go_clickHandler(event)" >
+					<s:Rect width="100%" height="100%">
+						<s:fill>
+							<s:SolidColor color="0x5f5f70"/>
+						</s:fill>
+					</s:Rect>
+				</s:Group>
+					
 			</s:HGroup>
-		
-			<s:HGroup width="100%">
-				<s:Label id="secondsDisp" width="100%" />
-				<s:Label id="minuteDisp" width="100%" />
-				<s:Label id="hourDisp" width="100%" />
-			</s:HGroup>
+
 	</s:VGroup>
 
 </s:Group>

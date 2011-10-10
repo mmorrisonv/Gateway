@@ -6,6 +6,17 @@
 	src:url("assets/fonts/FuturaStd-Condensed.otf");
 	fontFamily:"Futura";
 }
+/*
+@font-face{
+	src:url("assets/fonts/FrutigerLTStd-Bold.otf");
+	fontFamilty:"FrutigerBold";
+}
+ 
+@font-face{
+	src:url("assets/fonts/FrutigerLTStd-BoldCn.otf");
+	fontFamilty:"FrutigerBoldCond";
+}
+*/
 
 global
 {
@@ -13,3 +24,17 @@ global
 	color:#151517;
 	/*	typographicCase:uppercase;*/
 }
+/*
+.frutiger 
+{
+	font-family:"FrutigerBold";
+	
+}
+
+.frutigerCond
+{
+	font-family:"FrutigerBoldCond";
+	
+}
+
+*/

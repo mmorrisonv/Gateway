@@ -25,6 +25,13 @@
 				var e:CustomEvent = new CustomEvent(NEW_PERSON,newPerson,false);
 				dispatchEvent( e );
 			}
+			
+			protected function pname_doubleClickHandler(event:MouseEvent):void
+			{
+				this.pname.enabled = true;
+				
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -35,7 +42,7 @@
 		
 		<s:Label text="Person Creator"/>
 		<s:Image id="image"/>
-		<mx:HBox><s:TextInput id="pname"  text="Name "/></mx:HBox>
+		<mx:HBox><s:TextInput id="pname"  text="Name " enabled="false" /></mx:HBox>
 		<mx:HBox><s:TextInput id="pID" text="Card Number or ID "/></mx:HBox>
 		<mx:HBox><s:TextInput id="pRate" text="Rate "/></mx:HBox>
 		
