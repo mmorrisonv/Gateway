@@ -23,7 +23,7 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:HGroup>
-		<s:Label text="Roster"/>
+		<s:Label text="Entry Log" styleName="h2"/>
 		<mx:Text id="numEmployees" />
 	</s:HGroup>
 	

@@ -8,10 +8,10 @@
 	</fx:Declarations>
 	<mx:VBox>
 		
-		<s:Label text="Last Swipe"/>
-		<s:Image id="image"/>
-		<mx:HBox><s:Label text="Name: "/><s:Label id="pname" /></mx:HBox>
-		<mx:HBox><s:Label text="Time-In: "/><s:Label id="swipeTime" /></mx:HBox>
-			<mx:HBox><s:Label text="Rate: "/><s:Label id="rate" /></mx:HBox>
+			<s:Label text="Last Swipe" styleName="h2"/>
+			<mx:HBox><s:Label text="Name: "/><s:Label id="pname" styleName="text" /></mx:HBox>
+			<mx:HBox><s:Label text="Time: "/><s:Label id="swipeTime" styleName="text" /></mx:HBox>
+				
+	
 	</mx:VBox>
 </s:Group>
