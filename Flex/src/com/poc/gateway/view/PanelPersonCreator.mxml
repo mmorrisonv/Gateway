@@ -40,15 +40,28 @@
 	</fx:Declarations>
 	<mx:VBox>
 		
-		<s:Label text="Person Creator"/>
-		<s:Image id="image"/>
-		<mx:HBox><s:TextInput id="pname"  text="Name " enabled="false" /></mx:HBox>
-		<mx:HBox><s:TextInput id="pID" text="Card Number or ID "/></mx:HBox>
-		<mx:HBox><s:TextInput id="pRate" text="Rate "/></mx:HBox>
+
+	<mx:HBox>
+		<s:Label text="Person Creator" styleName="H2" width="100%"/>
+	</mx:HBox>
+	<mx:HBox>
 		
-		<mx:HBox><s:TextInput id="phone" text="Phone "/></mx:HBox>
-		<mx:HBox><s:TextInput id="email" text="Email "/></mx:HBox>
+		<mx:VBox>
+			<mx:HBox><s:TextInput id="pname"  prompt="Name"/></mx:HBox>
+			<mx:HBox><s:TextInput id="pID" prompt="Card Number or ID "/></mx:HBox>
+		</mx:VBox>
+
+		<mx:VBox>
+			<mx:HBox><s:TextInput id="pRate" prompt="Rate "/></mx:HBox>
+			<mx:HBox><s:TextInput id="phone" prompt="Phone "/></mx:HBox>			
+		</mx:VBox>
+
+		<mx:VBox>
+		<mx:HBox><s:TextInput id="email" prompt="Email "/></mx:HBox>
+		<s:Button label="Save New" click="onAddNew_clickHandler(event)"/>			
+		</mx:VBox>
+
 		
-		<s:Button label="Save New" click="onAddNew_clickHandler(event)"/>
+	</mx:HBox>	
 	</mx:VBox>
 </s:Group>

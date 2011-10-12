@@ -44,14 +44,8 @@
 					  paddingLeft="20">
 				
 				<view:SwipeEntryPanel width="100%" height="100%"/>
-				
-				<s:HGroup>	
-					<view:PanelPersonInspector height="100"/>
-					<view:PanelPersonCreator height="250"/>
-				</s:HGroup>
+				<view:HolderInspectionArea width="100%" height="100%" />
 
-				
-				
 			</s:VGroup>	
 		</s:HGroup>
 		

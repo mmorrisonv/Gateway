@@ -60,7 +60,7 @@ package com.poc.gateway.controller
 					entry.success = true;
 					entry.present = true;
 					this.model.lastSwipe = entry;
-					this.model._entries.addItem(entry);
+					this.model._entries.addItemAt(entry,0);
 		
 				}
 				else

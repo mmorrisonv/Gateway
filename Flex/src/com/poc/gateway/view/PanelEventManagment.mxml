@@ -54,9 +54,16 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	
+			<s:Rect width="100%" height="100%">
+			<s:fill>
+				<s:SolidColor color="0x4c4c56"/>
+			</s:fill>
+		</s:Rect>
 	<s:HGroup paddingBottom="20" paddingTop="20" paddingLeft="20" paddingRight="20"
 			  height="100%" width="400">
+		
+
+		
 		<s:HGroup width="200">
 			
 			<s:TextInput id="cardInput" width="100%" height="40" text="Event Name"
