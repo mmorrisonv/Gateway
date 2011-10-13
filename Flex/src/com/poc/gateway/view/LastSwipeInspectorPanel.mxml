@@ -6,9 +6,9 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<mx:VBox>
+	<mx:VBox paddingLeft="10">
 		
-			<s:Label text="Last Swipe" styleName="h2"/>
+			<s:Label text="Last Swipe" styleName="H2 lightGray" fontSize="20"/>
 			<mx:HBox><s:Label text="Name: "/><s:Label id="pname" styleName="text" /></mx:HBox>
 			<mx:HBox><s:Label text="Time: "/><s:Label id="swipeTime" styleName="text" /></mx:HBox>
 				

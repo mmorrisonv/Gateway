@@ -3,38 +3,38 @@
 @namespace mx "library://ns.adobe.com/flex/mx";
 
 @font-face {
-	src:url("assets/fonts/FuturaStd-Condensed.otf");
-	fontFamily:"Futura";
+	src:url("assets/fonts/AvantGardeStd-BoldCn.otf");
+	fontFamily:"AVGardeB";
 }
-/*
-@font-face{
-	src:url("assets/fonts/FrutigerLTStd-Bold.otf");
-	fontFamilty:"FrutigerBold";
+@font-face {
+	src:url("assets/fonts/AvantGardeStd-MdCn.otf");
+	fontFamily:"AVGarde";
 }
- 
-@font-face{
-	src:url("assets/fonts/FrutigerLTStd-BoldCn.otf");
-	fontFamilty:"FrutigerBoldCond";
+@font-face {
+	src:url("assets/fonts/HelveticaLTStdCond.otf");
+	fontFamily:"Helv";
 }
-*/
-
 global
 {
 	font-family: "Arial";
 	color:#151517;
 	/*	typographicCase:uppercase;*/
 }
-/*
-.frutiger 
+
+.H2 
 {
-	font-family:"FrutigerBold";
+	font-family:"AVGarde";
 	
 }
 
-.frutigerCond
+.H1
 {
-	font-family:"FrutigerBoldCond";
+	font-family:"AVGardeB";
 	
 }
 
-*/
+.lightGray{
+	color:#75757d;	
+}
+
+

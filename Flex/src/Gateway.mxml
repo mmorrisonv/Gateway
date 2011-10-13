@@ -29,8 +29,8 @@
 		<s:HGroup width="100%" height="80%">
 			
 			<!-- Left Column -->
-			<s:VGroup >
-				<view:LastSwipeInspectorPanel height="60" />	
+			<s:VGroup paddingTop="20">
+				<view:LastSwipeInspectorPanel height="60"/>	
 				<s:Scroller height="100%" >				
 					<view:EntryLog   />
 				</s:Scroller>
@@ -50,7 +50,7 @@
 		</s:HGroup>
 		
 		
-		<s:HGroup width="100%" height="20%">
+		<s:HGroup width="100%" height="60" bottom="0">
 			<view:PanelEventManagment width="100%" height="100%"/>
 		</s:HGroup>
 		
