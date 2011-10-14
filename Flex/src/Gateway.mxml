@@ -51,10 +51,11 @@
 		
 		
 		<s:HGroup width="100%" height="60" bottom="0">
-			<view:PanelEventManagment width="100%" height="100%"/>
+			
 		</s:HGroup>
 		
 		
 	</s:VGroup>
+	<view:PanelEventManagment width="100%" height="60" bottom="0"/>
 
 </s:WindowedApplication>
