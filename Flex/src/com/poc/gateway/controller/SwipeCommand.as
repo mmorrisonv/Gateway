@@ -4,8 +4,14 @@ package com.poc.gateway.controller
 	import com.poc.gateway.vo.EntryVO;
 	import com.poc.gateway.vo.PersonVO;
 	
-	import org.robotlegs.mvcs.Command;
 	import flash.events.Event;
+	import flash.globalization.DateTimeFormatter;
+	
+	import mx.formatters.DateFormatter;
+	
+	import org.robotlegs.mvcs.Command;
+	
+	import spark.formatters.DateTimeFormatter;
 	
 	public class SwipeCommand extends Command
 	{
@@ -17,7 +23,7 @@ package com.poc.gateway.controller
 			if ( event.type == SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE ) 
 			{
 				var validPerson:PersonVO;
-				var validSwipe = false;
+				var validSwipe:Boolean = false;
 				//check against valid cards
 				for each( var employee:PersonVO in this.model.Employees ){
 					if(employee.cardID == event.cardID)
@@ -29,18 +35,18 @@ package com.poc.gateway.controller
 				}
 				
 				//look for this entry - means swipe out
-				for each(var entry:EntryVO in this.model._entries)
+				for each(var preventry:EntryVO in this.model._entries)
 				{
-					if(entry.cardID == event.cardID )
+					if(preventry.cardID == event.cardID )
 					{
-						if(entry.present == true){
-						entry.present = false;
-						entry.updated();
+						if(preventry.present == true){
+							preventry.present = false;
+							preventry.updated();
 						return;
 						}
 						else{
-							entry.present = true;
-							entry.updated();
+							preventry.present = true;
+							preventry.updated();
 							return;
 						}
 					}
@@ -48,10 +54,19 @@ package com.poc.gateway.controller
 						
 				}
 				
-				var entry : EntryVO = new EntryVO();
+				var entry:EntryVO = new EntryVO();
 				var date:Date = new Date();
+				var frmtr:spark.formatters.DateTimeFormatter = new spark.formatters.DateTimeFormatter();
+				
+				frmtr.dateTimePattern = "h:mm:ssa MM/dd";
 				entry.cardID = event.cardID;
-				entry.time = date.getTime();
+				
+				entry.time.timestamp = Math.floor(date.getTime()/1000);
+				entry.time.timeStr = frmtr.format(date);
+				entry.time.dateObj = date;
+				frmtr.dateTimePattern = 'h:mm a';
+				entry.time.timeStrSml = frmtr.format(date);
+				
 				entry.success = false;
 				entry.person = validPerson;
 				

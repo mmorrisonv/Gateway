@@ -23,16 +23,18 @@
 				</s:RadialGradient>
 			</s:fill>
 		</s:Rect>
+		<s:Rect width="150" height="100%"><s:fill><s:SolidColor color="0xf3f2ee"/></s:fill></s:Rect>
 	<s:VGroup width="100%" height="100%" >
 		
 		
 		<s:HGroup width="100%" height="80%">
 			
 			<!-- Left Column -->
-			<s:VGroup paddingTop="20">
+			<s:VGroup paddingTop="20" width="150">		
+				
 				<view:LastSwipeInspectorPanel height="60"/>	
-				<s:Scroller height="100%" >				
-					<view:EntryLog   />
+				<s:Scroller height="100%" width="100%" >				
+					<view:EntryLog width="100%"   />
 				</s:Scroller>
 			</s:VGroup>
 
@@ -43,7 +45,7 @@
 			<s:VGroup width="100%" height="100%"
 					  paddingLeft="20">
 				
-				<view:SwipeEntryPanel width="100%" height="100%"/>
+				<view:PanelSwipeEntry width="100%" height="100%"/>
 				<view:HolderInspectionArea width="100%" height="100%" />
 
 			</s:VGroup>	

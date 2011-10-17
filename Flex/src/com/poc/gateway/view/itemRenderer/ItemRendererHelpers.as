@@ -1,4 +1,4 @@
-package com.poc.gateway.view
+package com.poc.gateway.view.itemRenderer
 {
 	
 	

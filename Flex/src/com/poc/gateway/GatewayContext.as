@@ -18,7 +18,7 @@ package com.poc.gateway
 		{
 			injector.mapSingleton(GatewayModel);
 			
-			mediatorMap.mapView(SwipeEntryPanel,SwipeEntryMediator);
+			mediatorMap.mapView(PanelSwipeEntry,SwipeEntryMediator);
 			mediatorMap.mapView(EntryLog,EntryLogMediator);
 			mediatorMap.mapView(LastSwipeInspectorPanel,LastSwipeInspectorMediator);
 			mediatorMap.mapView(PanelPersonInspector,PanelPersonInspectorMediator);

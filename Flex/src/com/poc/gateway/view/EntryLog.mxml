@@ -27,10 +27,10 @@
 		<mx:Text id="numEmployees" />
 	</s:HGroup>
 	
-	<s:List id="entryLog" width="100%"
-			borderVisible="false"
-			itemRenderer="com.poc.gateway.view.EntryLogItemRenderer"
-			labelField="cardID"
+	<s:List id="entryLog" 
+			width="100%" borderVisible="false"
+			itemRenderer="com.poc.gateway.view.itemRenderer.EntryLogItemRenderer"
+			labelField="cardID" allowMultipleSelection="true"
 			change="entryLog_changeHandler(event)">
 		<s:layout>
 			<s:VerticalLayout gap="0" paddingBottom="0" paddingLeft="0" paddingRight="0"/>

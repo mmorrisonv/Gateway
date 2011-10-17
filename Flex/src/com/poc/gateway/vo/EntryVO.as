@@ -1,14 +1,18 @@
 package com.poc.gateway.vo
 {
-	import flash.events.EventDispatcher;
 	import flash.events.Event;
+	import flash.events.EventDispatcher;
 
 	public class EntryVO extends EventDispatcher
 	{
+		public function EntryVO(){
+			
+			time = new TimeVO();
+		}
 		static public const UPDATED :String = 'UPDATED';
 		
 		public var cardID : String;
-		public var time : Number;
+		public var time : TimeVO;
 		public var success : Boolean;
 		public var person : PersonVO;
 		public var present:Boolean;

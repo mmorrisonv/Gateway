@@ -74,13 +74,13 @@ package com.poc.gateway.model
 			readEmployees();
 			setupLog();
 		} 
-		public function readEmployees()
+		public function readEmployees():void
 		{
 			var file:File = File.documentsDirectory.resolvePath("employees.txt");
 			var fileStream:FileStream = new FileStream();
 			fileStream.open(file, FileMode.READ);
 			try{
-				var rawJSON = fileStream.readUTFBytes(fileStream.bytesAvailable);
+				var rawJSON:String = fileStream.readUTFBytes(fileStream.bytesAvailable);
 			}
 			catch(e:Error){
 				
@@ -126,7 +126,7 @@ package com.poc.gateway.model
 			
 			fileStream.close();
 		}
-		public function writeEmployees()
+		public function writeEmployees():void
 		{
 			
 			
@@ -153,10 +153,10 @@ package com.poc.gateway.model
 			fileStream.writeUTF(exportstring);
 			fileStream.close();
 		}
-		public function setupLog()
+		public function setupLog():void
 		{
 			var date : Date = new Date();
-			var filename = 'event' + date.getTime();
+			var filename:String = 'event' + date.getTime();
 			var file:File = File.documentsDirectory.resolvePath(filename);
 			var fileStream:FileStream = new FileStream();
 			/*fileStream.open(file, FileMode.WRITE);

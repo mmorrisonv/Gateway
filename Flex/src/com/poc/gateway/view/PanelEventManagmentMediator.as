@@ -14,11 +14,11 @@ package  com.poc.gateway.view
 	public class SwipeEntryMediator extends Mediator
 	{
 		[Inject]public var model:GatewayModel;
-		[Inject]public var ui:SwipeEntryPanel;
+		[Inject]public var ui:PanelSwipeEntry;
 		
 		override public function onRegister():void
 		{
-			this.ui.addEventListener(SwipeEntryPanel.NEW_CARD_SWIPE,onNewCardSwiped);
+			this.ui.addEventListener(PanelSwipeEntry.NEW_CARD_SWIPE,onNewCardSwiped);
 		}
 		
 		protected function onNewCardSwiped(event:CustomEvent):void
