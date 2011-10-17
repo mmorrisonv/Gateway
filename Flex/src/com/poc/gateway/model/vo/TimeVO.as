@@ -1,4 +1,4 @@
-package com.poc.gateway.vo
+package com.poc.gateway.model.vo
 {
 	import flash.events.EventDispatcher;
 

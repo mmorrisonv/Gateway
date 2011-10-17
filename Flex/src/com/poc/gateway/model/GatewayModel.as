@@ -1,10 +1,10 @@
 package com.poc.gateway.model
 {
 	import com.adobe.serialization.json.JSON;
-	import com.poc.gateway.events.EntryEvent;
-	import com.poc.gateway.vo.EntryVO;
-	import com.poc.gateway.vo.PersonVO;
-	import com.poc.gateway.vo.RoleVO;
+	import com.poc.gateway.controller.events.EntryEvent;
+	import com.poc.gateway.model.vo.EntryVO;
+	import com.poc.gateway.model.vo.PersonVO;
+	import com.poc.gateway.model.vo.RoleVO;
 	
 	import flash.events.Event;
 	import flash.filesystem.File;
@@ -71,60 +71,45 @@ package com.poc.gateway.model
 		}
 		public function GatewayModel()
 		{
+			readRoles();
 			readEmployees();
 			setupLog();
 		} 
 		public function readEmployees():void
 		{
+			
+
+			
+			/*read employees.txt for each Employees JSON defintion*/
 			var file:File = File.documentsDirectory.resolvePath("employees.txt");
 			var fileStream:FileStream = new FileStream();
+			var rawJSON:String;
+			var _json:Object
+			
 			fileStream.open(file, FileMode.READ);
 			try{
-				var rawJSON:String = fileStream.readUTFBytes(fileStream.bytesAvailable);
+				rawJSON= fileStream.readUTFBytes(fileStream.bytesAvailable);
 			}
-			catch(e:Error){
-				
-			}
+			catch(e:Error){}
+			fileStream.close();
 			if(rawJSON != null)
-				var _json:Object = JSON.decode(rawJSON);
+				_json = JSON.decode(rawJSON);
 			
 			for each( var employeeImport:Object in _json.Employees  )
 			{
 				var employee:PersonVO = new PersonVO;
 				employee.Name = employeeImport.name
 				employee.cardID = employeeImport.cardid;
-				employee.Rate = 5;
+				employee.Role = this.Roles[employeeImport.role];
 				employee.created = employeeImport.created;
 				employee.deleted = employeeImport.deleted;
 					
 				this.Employees.addItem(employee);
 			}
 			
-			fileStream.close();
 			
-			file = File.documentsDirectory.resolvePath("employees.txt");
-			fileStream = new FileStream();
-			fileStream.open(file, FileMode.READ);
-			try{
-				rawJSON = fileStream.readUTFBytes(fileStream.bytesAvailable);
-			}
-			catch(e:Error){
-				
-			}
-			if(rawJSON != null)
-				_json = JSON.decode(rawJSON);
+
 			
-			for each( var roleImport:Object in _json.roles  )
-			{
-				var role:RoleVO = new RoleVO();
-				role.Name = roleImport.label
-				role.Index = roleImport.index;
-				role.Rate = roleImport.rate;
-				
-				this.Employees.addItem(employee);
-			}
-			
-			fileStream.close();
 		}
 		public function writeEmployees():void
 		{
@@ -140,7 +125,7 @@ package com.poc.gateway.model
 				var newperson:Object = new Object();
 				newperson.name = person.Name;
 				newperson.cardid = person.cardID;
-				newperson.rate = person.Rate;
+				newperson.rate = person.Role;
 				newperson.created = person.created;
 				newperson.deleted = person.deleted;
 				
@@ -164,6 +149,33 @@ package com.poc.gateway.model
 			fileStream.close();*/
 		}
 
+		public function readRoles():void
+		{
+			/*read roles.txt for Roles each employee can have*/
+			var file:File = File.documentsDirectory.resolvePath("roles.txt");
+			var fileStream:FileStream = new FileStream();
+			var rawJSON:String;
+			var _json:Object;
+			
+			fileStream.open(file, FileMode.READ);
+			try{
+				rawJSON = fileStream.readUTFBytes(fileStream.bytesAvailable);
+			}
+			catch(e:Error){}
+			fileStream.close();
+			if(rawJSON != null)
+				_json = JSON.decode(rawJSON);
+			
+			for each( var roleImport:Object in _json.roles  )
+			{
+				var role:RoleVO = new RoleVO();
+				role.Name = roleImport.label
+				role.Index = roleImport.index;
+				role.Rate = roleImport.rate;
+				role.Color = roleImport.color;
+				this.Roles.addItemAt(role,role.Index);
+			}
+		}
 		
 		
 	}

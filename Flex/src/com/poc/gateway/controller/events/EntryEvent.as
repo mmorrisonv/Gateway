@@ -1,4 +1,4 @@
-package com.poc.gateway.events
+package com.poc.gateway.controller.events
 {
 	import flash.events.Event;
 	

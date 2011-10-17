@@ -4,7 +4,7 @@
 		 xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:view="com.poc.gateway.view.*">
 	<fx:Script>
 		<![CDATA[
-			import com.poc.gateway.events.CustomEvent;
+			import com.poc.gateway.controller.events.CustomEvent;
 			
 			import mx.events.FlexEvent;
 			

@@ -1,4 +1,4 @@
-package com.poc.gateway.vo
+package com.poc.gateway.model.vo
 {
 	import flash.events.EventDispatcher;
 
@@ -9,9 +9,9 @@ package com.poc.gateway.vo
 			
 		}
 		public var cardID : String;
-		public var Name : String;
-		public var Rate : Number;
-		public var created:Number;
-		public var deleted:Number;
+		public var Name   : String;
+		public var Role   : RoleVO;
+		public var created: Number;
+		public var deleted: Number;
 	}
 }

@@ -23,7 +23,7 @@
 				</s:RadialGradient>
 			</s:fill>
 		</s:Rect>
-		<s:Rect width="150" height="100%"><s:fill><s:SolidColor color="0xf3f2ee"/></s:fill></s:Rect>
+		<s:Rect width="150" height="100%"><s:fill><s:SolidColor color="0x3a3a45"/></s:fill></s:Rect>
 	<s:VGroup width="100%" height="100%" >
 		
 		

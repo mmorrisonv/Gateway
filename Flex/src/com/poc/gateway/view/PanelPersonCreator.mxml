@@ -6,23 +6,17 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import com.poc.gateway.events.CustomEvent;
-			import com.poc.gateway.vo.PersonVO;
+			import com.poc.gateway.controller.events.CustomEvent;
+			import com.poc.gateway.model.vo.PersonVO;
 			
 			//event strings
 			static public var NEW_PERSON:String = "NEW_PERSON";
 			
 			protected function onAddNew_clickHandler(event:MouseEvent):void
 			{
-				var newPerson:PersonVO = new PersonVO;
-				var date:Date = new Date();
-				newPerson.created = date.getTime();
-				newPerson.deleted = 0;
-				newPerson.Name = this.pname.text;
-				newPerson.cardID = this.pID.text;
-				newPerson.Rate = int( this.pRate.text );
+
 				
-				var e:CustomEvent = new CustomEvent(NEW_PERSON,newPerson,false);
+				var e:CustomEvent = new CustomEvent(NEW_PERSON,null,false);
 				dispatchEvent( e );
 			}
 			
@@ -52,7 +46,7 @@
 		</mx:VBox>
 
 		<mx:VBox>
-			<mx:HBox><s:TextInput id="pRate" prompt="Rate "/></mx:HBox>
+			<mx:HBox><s:DropDownList id="pRole" labelField="Name" width="100%"/></mx:HBox>
 			<mx:HBox><s:TextInput id="phone" prompt="Phone "/></mx:HBox>			
 		</mx:VBox>
 

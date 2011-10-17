@@ -69,7 +69,7 @@
 			<s:TextInput id="cardInput" width="100%" height="40" text="Event Name"
 						 fontSize="24" 
 						 change="cardInput_changeHandler(event)"
-						 skinClass="com.poc.gateway.skins.largeSimple" 
+						 skinClass="com.poc.gateway.view.skins.largeSimple" 
 						 contentBackgroundColor="0x4c4c56" borderAlpha="0" focusColor="0x74747d" focusThickness="1"/>
 			
 		</s:HGroup>

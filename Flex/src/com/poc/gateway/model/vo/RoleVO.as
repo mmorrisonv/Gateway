@@ -1,4 +1,4 @@
-package com.poc.gateway.vo
+package com.poc.gateway.model.vo
 {
 	public class RoleVO
 	{
@@ -9,6 +9,7 @@ package com.poc.gateway.vo
 		public var Name : String;
 		public var Rate : Number;
 		public var Index: Number;
+		public var Color: String;
 		
 	}
 }

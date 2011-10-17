@@ -1,9 +1,9 @@
 package  com.poc.gateway.view
 {
 
-	import com.poc.gateway.events.CustomEvent;
+	import com.poc.gateway.controller.events.CustomEvent;
 	import com.poc.gateway.model.GatewayModel;
-	import com.poc.gateway.vo.EntryVO;
+	import com.poc.gateway.model.vo.EntryVO;
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;

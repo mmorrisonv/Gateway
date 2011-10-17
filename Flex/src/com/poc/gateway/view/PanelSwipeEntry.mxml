@@ -4,7 +4,7 @@
 		 xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="group1_creationCompleteHandler(event)">
 	<fx:Script>
 		<![CDATA[
-			import com.poc.gateway.events.CustomEvent;
+			import com.poc.gateway.controller.events.CustomEvent;
 			
 			import mx.events.FlexEvent;
 			

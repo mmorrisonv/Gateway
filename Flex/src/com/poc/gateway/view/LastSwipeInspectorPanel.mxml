@@ -8,7 +8,7 @@
 	</fx:Declarations>
 	<mx:VBox paddingLeft="10">
 		
-			<s:Label text="Last Swipe" styleName="H2 lightGray" fontSize="20"/>
+			<s:Label text="Last Swipe" styleName="H2 Gray" fontSize="20"/>
 			<mx:HBox><s:Label text="Name: "/><s:Label id="pname" styleName="text Gray" /></mx:HBox>
 			<mx:HBox><s:Label text="Time: "/><s:Label id="swipeTime" styleName="text Gray"/></mx:HBox>
 				

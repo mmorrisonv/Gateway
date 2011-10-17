@@ -1,8 +1,8 @@
 package com.poc.gateway.controller
 {
 	import com.poc.gateway.model.GatewayModel;
-	import com.poc.gateway.vo.EntryVO;
-	import com.poc.gateway.vo.PersonVO;
+	import com.poc.gateway.model.vo.EntryVO;
+	import com.poc.gateway.model.vo.PersonVO;
 	
 	import flash.events.Event;
 	import flash.globalization.DateTimeFormatter;

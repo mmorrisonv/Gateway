@@ -2,8 +2,8 @@ package  com.poc.gateway.view
 {
 	
 	import com.poc.gateway.controller.SwipeCommandTriggerEvent;
-	import com.poc.gateway.events.CustomEvent;
-	import com.poc.gateway.events.EntryEvent;
+	import com.poc.gateway.controller.events.CustomEvent;
+	import com.poc.gateway.controller.events.EntryEvent;
 	import com.poc.gateway.model.GatewayModel;
 	
 	import flash.events.Event;

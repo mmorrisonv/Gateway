@@ -2,10 +2,11 @@ package  com.poc.gateway.view
 {
 	
 	import com.poc.gateway.controller.SwipeCommandTriggerEvent;
-	import com.poc.gateway.events.CustomEvent;
-	import com.poc.gateway.events.EntryEvent;
+	import com.poc.gateway.controller.events.CustomEvent;
+	import com.poc.gateway.controller.events.EntryEvent;
 	import com.poc.gateway.model.GatewayModel;
 	import com.poc.gateway.model.ModelEvent;
+	import com.poc.gateway.model.vo.PersonVO;
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -22,14 +23,23 @@ package  com.poc.gateway.view
 			
 			//eventMap.mapListener(eventDispatcher,ModelEvent.CURRENT_INSPECTION_CHANGED,onNewInspection );
 			this.ui.addEventListener(PanelPersonCreator.NEW_PERSON,onNewPersonCreated);
-			
+			this.ui.pRole.dataProvider = this.model.Roles;
 		}
 		
 		protected function onNewPersonCreated(event:CustomEvent):void
-		{
-			this.model.Employees.addItem(event.data);
-			this.model.writeEmployees();
+		{	
 			
+			var newPerson:PersonVO = new PersonVO;
+			var date:Date = new Date();
+			newPerson.created = Math.floor( date.time / 1000 );
+			newPerson.deleted = 0;
+			newPerson.Name = this.ui.pname.text;
+			newPerson.cardID = this.ui.pID.text;
+			//newPerson.Role = this.model.Roles[int( this.ui.pRate.text )];
+			newPerson.Role = this.ui.pRole.selectedItem;
+			
+			this.model.Employees.addItem(newPerson);
+			this.model.writeEmployees();
 		}
 		
 		protected function onNewInspection(event:ModelEvent):void

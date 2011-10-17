@@ -6,7 +6,7 @@
 		 width="100%" height="40"  height.selected="40" useHandCursor="true" buttonMode="true" autoDrawBackground="false">
 	<fx:Script>
 		<![CDATA[
-			import com.poc.gateway.vo.EntryVO;
+			import com.poc.gateway.model.vo.EntryVO;
 			
 			import mx.events.FlexEvent;
 			
@@ -36,6 +36,7 @@
 			{
 				txtLbl.text = this.entry.person.Name + ' id:' + this.entry.cardID; 
 				this.txtLb2.text = this.entry.time.timeStr;
+				
 				if (this.selected == false && this.currentState == 'selected' )
 					this.currentState = ''; 
 				
@@ -43,6 +44,7 @@
 					rectSignedIn.color = 0xA8C078;
 				else
 					rectSignedIn.color = 0x606060;
+				this.rectRate.color = uint('0x'+this.entry.person.Role.Color);
 				//this.entry.success
 
 			}
