@@ -35,7 +35,7 @@
 			public function updateItemRenderer(e:Event=null)  : void
 			{
 				txtLbl.text = this.entry.person.Name + ' id:' + this.entry.cardID; 
-				this.txtLb2.text = this.entry.time.timeStr;
+				this.txtLb2.text = this.entry.timeIN.timeStr;
 				
 				if (this.selected == false && this.currentState == 'selected' )
 					this.currentState = ''; 

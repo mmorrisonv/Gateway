@@ -7,12 +7,14 @@ package com.poc.gateway.model.vo
 	{
 		public function EntryVO(){
 			
-			time = new TimeVO();
+			timeIN = new TimeVO();
+			timeOUT = new TimeVO();
 		}
 		static public const UPDATED :String = 'UPDATED';
 		
 		public var cardID : String;
-		public var time : TimeVO;
+		public var timeIN : TimeVO;
+		public var timeOUT : TimeVO;
 		public var success : Boolean;
 		public var person : PersonVO;
 		public var present:Boolean;

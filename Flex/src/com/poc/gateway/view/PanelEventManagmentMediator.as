@@ -11,14 +11,20 @@ package  com.poc.gateway.view
 	
 	import org.robotlegs.mvcs.Mediator;
 	
-	public class SwipeEntryMediator extends Mediator
+	public class PanelEventManagmentMediator extends Mediator
 	{
 		[Inject]public var model:GatewayModel;
-		[Inject]public var ui:PanelSwipeEntry;
+		[Inject]public var ui:PanelEventManagment;
 		
 		override public function onRegister():void
 		{
 			this.ui.addEventListener(PanelSwipeEntry.NEW_CARD_SWIPE,onNewCardSwiped);
+			this.ui.addEventListener(PanelEventManagment.EXPORT_EVENT,onExportEvent);
+		}
+		
+		protected function onExportEvent(event:Event):void
+		{
+			this.model.writeEmployees();
 		}
 		
 		protected function onNewCardSwiped(event:CustomEvent):void

@@ -20,8 +20,13 @@ package com.poc.gateway.controller
 		
 		override public function execute():void
 		{
+			var date:Date = new Date();
+			var frmtr:spark.formatters.DateTimeFormatter = new spark.formatters.DateTimeFormatter();
+			frmtr.dateTimePattern = "h:mm:ssa MM/dd";
+			
 			if ( event.type == SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE ) 
 			{
+				
 				var validPerson:PersonVO;
 				var validSwipe:Boolean = false;
 				//check against valid cards
@@ -37,35 +42,36 @@ package com.poc.gateway.controller
 				//look for this entry - means swipe out
 				for each(var preventry:EntryVO in this.model._entries)
 				{
-					if(preventry.cardID == event.cardID )
+					if(preventry.cardID == event.cardID && preventry.present == true )
 					{
-						if(preventry.present == true){
+						if(preventry.present == true)
+						{
 							preventry.present = false;
-							preventry.updated();
-						return;
-						}
-						else{
-							preventry.present = true;
+							preventry.timeOUT.timestamp = Math.floor(date.getTime()/1000);
+							preventry.timeOUT.timeStr = frmtr.format(date);
+							preventry.timeOUT.dateObj = date;
 							preventry.updated();
 							return;
 						}
+						/*else{
+							preventry.present = true;
+							preventry.updated();
+							return;
+						}*/
 					}
 					
 						
 				}
 				
 				var entry:EntryVO = new EntryVO();
-				var date:Date = new Date();
-				var frmtr:spark.formatters.DateTimeFormatter = new spark.formatters.DateTimeFormatter();
-				
-				frmtr.dateTimePattern = "h:mm:ssa MM/dd";
+
 				entry.cardID = event.cardID;
 				
-				entry.time.timestamp = Math.floor(date.getTime()/1000);
-				entry.time.timeStr = frmtr.format(date);
-				entry.time.dateObj = date;
+				entry.timeIN.timestamp = Math.floor(date.getTime()/1000);
+				entry.timeIN.timeStr = frmtr.format(date);
+				entry.timeIN.dateObj = date;
 				frmtr.dateTimePattern = 'h:mm a';
-				entry.time.timeStrSml = frmtr.format(date);
+				entry.timeIN.timeStrSml = frmtr.format(date);
 				
 				entry.success = false;
 				entry.person = validPerson;

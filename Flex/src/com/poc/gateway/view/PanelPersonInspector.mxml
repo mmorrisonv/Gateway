@@ -12,6 +12,6 @@
 		<s:Image id="image"/>
 		<mx:HBox><s:Label text="Name: "/><s:Label id="pname" /></mx:HBox>
 		<mx:HBox><s:Label text="Time-In: "/><s:Label id="swipeTime" /></mx:HBox>
-		<mx:HBox><s:Label text="Rate: "/><s:DropDownList id="rate" labelField="Name" /></mx:HBox>
+		<mx:HBox><s:Label text="Position: "/><s:DropDownList id="rate" labelField="Name" /></mx:HBox>
 	</mx:VBox>
 </s:Group>

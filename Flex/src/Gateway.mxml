@@ -30,9 +30,9 @@
 		<s:HGroup width="100%" height="80%">
 			
 			<!-- Left Column -->
-			<s:VGroup paddingTop="20" width="150">		
+			<s:VGroup paddingTop="20" width="150" height="75%">		
 				
-				<view:LastSwipeInspectorPanel height="60"/>	
+				<view:LastSwipeInspectorPanel height="60" />	
 				<s:Scroller height="100%" width="100%" >				
 					<view:EntryLog width="100%"   />
 				</s:Scroller>
@@ -42,13 +42,13 @@
 
 			
 			<!-- Middle Column -->
-			<s:VGroup width="100%" height="100%"
-					  paddingLeft="20">
+			<s:Group width="100%" height="100%"
+					  >
 				
 				<view:PanelSwipeEntry width="100%" height="100%"/>
-				<view:HolderInspectionArea width="100%" height="100%" />
+				<view:HolderInspectionArea width="100%" height="100%" y="80" />
 
-			</s:VGroup>	
+			</s:Group>	
 		</s:HGroup>
 		
 		

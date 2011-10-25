@@ -7,6 +7,7 @@ package  com.poc.gateway.view
 	import com.poc.gateway.model.GatewayModel;
 	
 	import flash.events.Event;
+	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	
 	import org.robotlegs.mvcs.Mediator;
@@ -21,13 +22,22 @@ package  com.poc.gateway.view
 			/*eventMap.mapListener(ui.go,MouseEvent.CLICK,goClicked);
 			eventMap.mapListener(eventDispatcher,EntryEvent.ENTRYLIST_UPDATED,onEntry );*/
 			this.ui.addEventListener(PanelSwipeEntry.NEW_CARD_SWIPE,onNewCardSwiped);
+			this.ui.addEventListener(KeyboardEvent.KEY_DOWN,checkKey);
+		}
+		
+		protected function checkKey(event:KeyboardEvent):void
+		{
+			if(event.charCode == 13)
+				onNewCardSwiped(null);
 		}
 		
 		protected function onNewCardSwiped(event:CustomEvent):void
 		{
 			// Someone has swiped a card
+			
 			var e:SwipeCommandTriggerEvent = new SwipeCommandTriggerEvent(
-				SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,event.data.toString() );
+				SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,this.ui.cardInput.text );
+			this.ui.cardInput.text = "";
 			this.dispatch( e );
 		}
 		

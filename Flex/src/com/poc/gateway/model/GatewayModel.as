@@ -115,27 +115,28 @@ package com.poc.gateway.model
 		{
 			
 			
-			var file:File = File.documentsDirectory.resolvePath("employeesOUT.txt");
+			var file:File = File.documentsDirectory.resolvePath("employeesOUT.csv");
 			var fileStream:FileStream = new FileStream();
 			
-			var export:Object = new Object();
-			export.Employees = new Array();
-			for each(var person:PersonVO in this.Employees)
+			var export:String = new String();
+			export = "Name,CardID,Role,TimeIN,TimeOUT,TotalTime\r\n";
+			for each(var entry:EntryVO in this._entries)
 			{
-				var newperson:Object = new Object();
-				newperson.name = person.Name;
-				newperson.cardid = person.cardID;
-				newperson.rate = person.Role;
-				newperson.created = person.created;
-				newperson.deleted = person.deleted;
 				
-				(export.Employees as Array).push(newperson);
+				export += entry.person.Name + ',';
+				export += entry.person.cardID+ ',';
+				export += entry.person.Role.Name+ ',';
+				export += entry.timeIN.timeStr+ ',';
+				export += entry.timeOUT.timeStr+ ',';
+				export += (entry.timeOUT.timestamp - entry.timeIN.timestamp) || 'inf';
+				export += '\r\n';
+				
 			}
 			
-			var exportstring:String = JSON.encode(export);
+			
 			
 			fileStream.open(file, FileMode.WRITE);
-			fileStream.writeUTF(exportstring);
+			fileStream.writeUTFBytes(export);
 			fileStream.close();
 		}
 		public function setupLog():void

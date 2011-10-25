@@ -12,6 +12,8 @@
 			private var timer : Timer;
 			private var secondsSinceStart : int;
 			
+			static public var EXPORT_EVENT:String = "ee";
+			
 			protected function group1_creationCompleteHandler(event:FlexEvent):void
 			{
 				
@@ -49,6 +51,12 @@
 					this.hourDisp.text = "0" + this.hourDisp.text
 			}
 			
+			protected function export_clickHandler(event:MouseEvent):void
+			{
+				var e:Event = new Event(EXPORT_EVENT,true, false);
+				dispatchEvent(e);
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -82,6 +90,7 @@
 			<s:Label id="secondsDisp"  />
 		</s:HGroup>
 		<s:Button label="Start Event" click="start_clickHandler(event)"/>
+		<s:Button label="Export Event" click="export_clickHandler(event)"/>
 	</s:HGroup>
 	
 </s:Group>
