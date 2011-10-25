@@ -16,9 +16,13 @@ package com.poc.gateway.model
 	
 	import org.robotlegs.mvcs.Actor;
 	
+	import spark.formatters.DateTimeFormatter;
+	
 	public class GatewayModel extends Actor
 	{
 		public var _entries:ArrayCollection = new ArrayCollection();
+		
+		public var eventDate:String = new String();
 		
 		public var Employees:ArrayCollection = new ArrayCollection();
 		public var Roles:ArrayCollection = new ArrayCollection();
@@ -74,6 +78,13 @@ package com.poc.gateway.model
 			readRoles();
 			readEmployees();
 			setupLog();
+			
+			//set eventDate
+			var date:Date = new Date();
+			var frmtr:spark.formatters.DateTimeFormatter = new spark.formatters.DateTimeFormatter();
+			frmtr.dateTimePattern = 'hh.mm-MM-dd-yy';
+			frmtr.format(date);
+			eventDate = frmtr.format(date);
 		} 
 		public function readEmployees():void
 		{
@@ -115,7 +126,7 @@ package com.poc.gateway.model
 		{
 			
 			
-			var file:File = File.documentsDirectory.resolvePath("employeesOUT.csv");
+			var file:File = File.documentsDirectory.resolvePath("employeesOUT"+this.eventDate+".csv");
 			var fileStream:FileStream = new FileStream();
 			
 			var export:String = new String();

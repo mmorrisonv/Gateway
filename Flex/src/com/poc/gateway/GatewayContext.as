@@ -27,6 +27,7 @@ package com.poc.gateway
 			
 			this.commandMap.mapEvent(SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,SwipeCommand);
 			
+			
 			super.startup();
 		}
 	}

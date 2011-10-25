@@ -27,6 +27,7 @@ package  com.poc.gateway.view
 		
 		protected function checkKey(event:KeyboardEvent):void
 		{
+			trace(event.charCode)
 			if(event.charCode == 13)
 				onNewCardSwiped(null);
 		}
@@ -37,8 +38,9 @@ package  com.poc.gateway.view
 			
 			var e:SwipeCommandTriggerEvent = new SwipeCommandTriggerEvent(
 				SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,this.ui.cardInput.text );
-			this.ui.cardInput.text = "";
+			
 			this.dispatch( e );
+			this.ui.cardInput.text = "";
 		}
 		
 		/*delete
