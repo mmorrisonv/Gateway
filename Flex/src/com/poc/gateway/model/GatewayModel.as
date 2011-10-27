@@ -137,9 +137,9 @@ package com.poc.gateway.model
 				export += entry.person.Name + ',';
 				export += entry.person.cardID+ ',';
 				export += entry.person.Role.Name+ ',';
-				export += entry.timeIN.timeStr+ ',';
-				export += entry.timeOUT.timeStr+ ',';
-				export += (entry.timeOUT.timestamp - entry.timeIN.timestamp) || 'inf';
+				export += entry.startTime.timeStr+ ',';
+				export += entry.stopTime.timeStr+ ',';
+				export += (entry.stopTime.timestamp - entry.startTime.timestamp) || 'inf';
 				export += '\r\n';
 				
 			}
@@ -181,7 +181,8 @@ package com.poc.gateway.model
 			for each( var roleImport:Object in _json.roles  )
 			{
 				var role:RoleVO = new RoleVO();
-				role.Name = roleImport.label
+				role.Name = roleImport.label;
+				role.Name_short = role.Name.substr(0,1);
 				role.Index = roleImport.index;
 				role.Rate = roleImport.rate;
 				role.Color = roleImport.color;

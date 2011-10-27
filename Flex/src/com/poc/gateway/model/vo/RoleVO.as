@@ -6,10 +6,11 @@ package com.poc.gateway.model.vo
 		{
 		
 		}
-		public var Name : String;
-		public var Rate : Number;
-		public var Index: Number;
-		public var Color: String;
+		public var Name    : String;
+		public var Name_short: String;
+		public var Rate    : Number;
+		public var Index   : Number;
+		public var Color   : String;
 		
 	}
 }

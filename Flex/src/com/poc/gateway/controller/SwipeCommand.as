@@ -3,6 +3,7 @@ package com.poc.gateway.controller
 	import com.poc.gateway.model.GatewayModel;
 	import com.poc.gateway.model.vo.EntryVO;
 	import com.poc.gateway.model.vo.PersonVO;
+	import com.poc.gateway.model.vo.TaskVO;
 	
 	import flash.events.Event;
 	import flash.globalization.DateTimeFormatter;
@@ -20,9 +21,8 @@ package com.poc.gateway.controller
 		
 		override public function execute():void
 		{
+
 			var date:Date = new Date();
-			var frmtr:spark.formatters.DateTimeFormatter = new spark.formatters.DateTimeFormatter();
-			frmtr.dateTimePattern = "h:mm:ssa MM/dd";
 			
 			if ( event.type == SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE ) 
 			{
@@ -35,61 +35,96 @@ package com.poc.gateway.controller
 					{
 						validSwipe = true;
 						validPerson = employee;
-						
 					}
 				}
-				
-				//look for this entry - means swipe out
-				for each(var preventry:EntryVO in this.model._entries)
-				{
-					if(preventry.cardID == event.cardID && preventry.present == true )
-					{
-						if(preventry.present == true)
-						{
-							preventry.present = false;
-							preventry.timeOUT.timestamp = Math.floor(date.getTime()/1000);
-							preventry.timeOUT.timeStr = frmtr.format(date);
-							preventry.timeOUT.dateObj = date;
-							preventry.updated();
-							return;
-						}
-						/*else{
-							preventry.present = true;
-							preventry.updated();
-							return;
-						}*/
-					}
-					
-						
-				}
-				
-				var entry:EntryVO = new EntryVO();
-
-				entry.cardID = event.cardID;
-				
-				entry.timeIN.timestamp = Math.floor(date.getTime()/1000);
-				entry.timeIN.timeStr = frmtr.format(date);
-				entry.timeIN.dateObj = date;
-				frmtr.dateTimePattern = 'h:mm a';
-				entry.timeIN.timeStrSml = frmtr.format(date);
-				
-				entry.success = false;
-				entry.person = validPerson;
-				
 				if(validSwipe)
 				{
-					entry.success = true;
-					entry.present = true;
-					this.model.lastSwipe = entry;
-					this.model._entries.addItemAt(entry,0);
-		
-				}
-				else
-				{
 					
-				}
+		
+					//look for this entry - means swipe out
+					var previousEntry:EntryVO = lookForEntry(event.cardID)
+					if( previousEntry != null )
+					{
+						if(previousEntry.present == true && previousEntry.currentTask != null)
+						{
+							//end this Entries current task, and add an endTime
+							previousEntry.present = false;
+							previousEntry.stopTime.dateObj = date;
+							
+							previousEntry.currentTask.timeOUT.dateObj = date;
+							previousEntry.currentTask.updated();
+							previousEntry.currentTask = null;
+							previousEntry.updated();
+							return;
+						}
+						else //create new task
+						{
+							//reset the endTime of this entry
+							previousEntry.present = true;
+							previousEntry.stopTime.dateObj = null;
+							
+							previousEntry.currentTask = createNewTask(event.cardID,validPerson);
+							previousEntry.Tasks.addItemAt(previousEntry.currentTask,0);
+							previousEntry.updated();
+							return;
+						}
+					}
+					else
+					{
+						var newEntry:EntryVO = createNewEntry(event.cardID,validPerson);
+						newEntry.present = true;
+						newEntry.currentTask = createNewTask(event.cardID,validPerson);
+						newEntry.Tasks.addItemAt(newEntry.currentTask,0);
+						
+						this.model.lastSwipe = newEntry;
+						this.model._entries.addItemAt(newEntry,0);
+					}
+
 				
+
+				}
+
 			}
+		}
+		
+		private function createNewTask(cardID:String,validPerson:PersonVO):TaskVO
+		{
+			//create task
+			var date:Date = new Date();
+			
+			var newTask:TaskVO = new TaskVO();
+			newTask.cardID = cardID;
+			newTask.current = true;
+			newTask.Role = validPerson.Role;
+			newTask.timeIN.dateObj = date;
+
+			return newTask;
+		}
+		
+		public function createNewEntry(cardID:String, person:PersonVO):EntryVO
+		{
+			var entry:EntryVO = new EntryVO();
+			var date:Date = new Date();
+
+			
+			entry.cardID = cardID;
+			
+			entry.startTime.dateObj = date;
+			
+			entry.success = false;
+			entry.person = person;
+			
+			return entry;
+		}
+		
+		
+		public function lookForEntry(cardID:String):EntryVO{
+			for each(var preventry:EntryVO in this.model._entries)
+			{
+				if(preventry.cardID == cardID )
+					return preventry;
+			}
+			return null;
 		}
 		
 	}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				autoDrawBackground="false"
+				creationComplete="creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.poc.gateway.model.vo.TaskVO;
+			
+			import mx.events.FlexEvent;
+			
+			public var help : ItemRendererHelpers = new ItemRendererHelpers(this ) ; 
+			[Bindable] public var task : TaskVO = new TaskVO()
+				
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+			}
+			override public function set data(value:Object):void { 
+				super.data = value; 
+				this.help.listenForObj(value,TaskVO.UPDATED, this.updateItemRenderer )
+				
+				
+				task = value as TaskVO
+				this.help.disableIfNull( value, new TaskVO, 'entry' );  
+				//this.help.setupParent( this.owner ) ;
+				//this.help.fxSetup( null, null, this.btnDelete  ) ; 
+				this.updateItemRenderer()
+			} 
+			public function updateItemRenderer(e:Event=null)  : void
+			{	
+				
+				this.lbl1.text = this.task.timeIN.timeStrSml + '-' + this.task.timeOUT.timeStrSml;
+				this.posInitial.text = this.task.Role.Name_short;
+				this.rectRate.color = uint('0x'+this.task.Role.Color);
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:Label id="lbl1"/>
+	
+	<s:Group right="0" verticalCenter="0" width="15">
+		<s:Label id="posInitial" verticalCenter="0"/>
+		<s:Ellipse  width="4" height="4" verticalCenter="0"
+					x="6">
+			<s:fill>
+				<s:SolidColor id="rectRate" color="0x567E3A"/>
+			</s:fill>
+		</s:Ellipse>
+	</s:Group>
+
+	
+</s:ItemRenderer>

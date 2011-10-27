@@ -28,7 +28,7 @@ package  com.poc.gateway.view
 		{
 			// Someone has swiped a card - show the personVO
 			ui.pname.text = this.model.currentSwipeInspection.person.Name;
-			ui.swipeTime.text = this.model.currentSwipeInspection.timeIN.timeStrSml;
+			ui.swipeTime.text = this.model.currentSwipeInspection.stopTime.timeStrSml;
 			ui.rate.selectedItem = this.model.currentSwipeInspection.person.Role;
 			
 	

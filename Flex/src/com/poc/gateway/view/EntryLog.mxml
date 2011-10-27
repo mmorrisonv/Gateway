@@ -25,7 +25,7 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:HGroup>
-		<s:Label text="Entry Log" styleName="H2 Gray"/>
+		<s:Label text="Entry Log" styleName="H2"/>
 		<mx:Text id="numEmployees" />
 	</s:HGroup>
 	

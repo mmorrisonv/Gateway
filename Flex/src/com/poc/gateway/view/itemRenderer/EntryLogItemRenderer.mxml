@@ -3,7 +3,7 @@
 		 xmlns:s="library://ns.adobe.com/flex/spark"  
 		 xmlns:mx="library://ns.adobe.com/flex/mx" 
 		 creationComplete="group1_creationCompleteHandler(event)"
-		 width="100%" height="40"  height.selected="40" useHandCursor="true" buttonMode="true" autoDrawBackground="false">
+		 width="100%" height="50" height.selected="100%" useHandCursor="true" buttonMode="true" autoDrawBackground="false">
 	<fx:Script>
 		<![CDATA[
 			import com.poc.gateway.model.vo.EntryVO;
@@ -14,7 +14,7 @@
 			[Bindable]
 			private var txtText:String = "";
 			public var creationComplete:Boolean = false
-			private var _labelText:String;
+			//private var _labelText:String;
 			
 			
 			public var help : ItemRendererHelpers = new ItemRendererHelpers(this ) ; 
@@ -35,7 +35,8 @@
 			public function updateItemRenderer(e:Event=null)  : void
 			{
 				txtLbl.text = this.entry.person.Name + ' id:' + this.entry.cardID; 
-				this.txtLb2.text = this.entry.timeIN.timeStr;
+				this.txtLb2.text = this.entry.startTime.timeStr;
+				
 				
 				if (this.selected == false && this.currentState == 'selected' )
 					this.currentState = ''; 
@@ -44,8 +45,9 @@
 					rectSignedIn.color = 0xA8C078;
 				else
 					rectSignedIn.color = 0x606060;
-				this.rectRate.color = uint('0x'+this.entry.person.Role.Color);
-				//this.entry.success
+
+				
+				this.taskList.dataProvider = this.entry.Tasks;
 
 			}
 			
@@ -53,7 +55,7 @@
 			public function set labelText(string:String):void
 			{
 				//this.txtText = string;
-				this._labelText = string; 
+				//this._labelText = string; 
 				if ( this.creationComplete == false ) return; 
 				//this.lblName.text = string; 
 			}
@@ -61,7 +63,7 @@
 			protected function group1_creationCompleteHandler(event:FlexEvent):void
 			{
 				this.creationComplete = true
-				this.labelText = this._labelText; 
+				//this.labelText = this._labelText; 
 			}
 			
 
@@ -108,20 +110,24 @@
 		</s:Rect>
 	</s:Group>
 	
-	<s:Group width="100%" verticalCenter="0" height="100%">
+	<s:Group width="100%" height="100%">
 
 
-		<s:Label id="txtLbl" x="5" width="120" maxHeight="28" color="0" fontSize="12" verticalCenter="-8"
+		<s:Label id="txtLbl" x="5" width="120" maxHeight="28" color="0" fontSize="12" 
 				 color.hovered="0x333333"
 				 color.selected="0" styleName="grayTxt Arial" />
-		<s:Label id="txtLb2" x="5" y="14" width="120" maxHeight="28" color="0" fontSize="12" verticalCenter="8"
+		<s:Label id="txtLb2" x="5" y="14" width="120" maxHeight="28" color="0" fontSize="12" 
 				 color.hovered="0x333333"
 				 color.selected="0" styleName="grayTxt Arial" />
-		<s:Ellipse  width="4" height="4" top="4" right="10">
+		<s:List id="taskList" x="10" y="26" width="120" itemRenderer="com.poc.gateway.view.itemRenderer.TaskLogItemRenderer" contentBackgroundAlpha="0" borderVisible="false">
+			
+		</s:List>
+
+<!--		<s:Ellipse  width="4" height="4" top="4" right="10">
 			<s:fill>
 				<s:SolidColor id="rectRate" color="0x567E3A"/>
 			</s:fill>
-		</s:Ellipse>
+		</s:Ellipse>-->
 		<s:Ellipse width="4" height="4" right="4" top="4">
 			<s:fill>
 				<s:SolidColor id="rectSignedIn" color="0xA8C078"/>
