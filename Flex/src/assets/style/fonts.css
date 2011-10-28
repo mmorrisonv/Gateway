@@ -21,6 +21,13 @@ global
 	/*	typographicCase:uppercase;*/
 }
 
+.Helv{
+	font-family:"Helv";	
+}
+.AVGarde{
+	font-family:"AVGarde";	
+}
+
 .H2 
 {
 	font-family:"AVGarde";
