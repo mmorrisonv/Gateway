@@ -5,6 +5,7 @@ package com.poc.gateway.model
 	import com.poc.gateway.model.vo.EntryVO;
 	import com.poc.gateway.model.vo.PersonVO;
 	import com.poc.gateway.model.vo.RoleVO;
+	import com.poc.gateway.model.vo.TimeVO;
 	
 	import flash.events.Event;
 	import flash.filesystem.File;
@@ -23,6 +24,7 @@ package com.poc.gateway.model
 		public var _entries:ArrayCollection = new ArrayCollection();
 		
 		public var eventDate:String = new String();
+		private var _eventStartTime:TimeVO = new TimeVO();
 		
 		public var Employees:ArrayCollection = new ArrayCollection();
 		public var Roles:ArrayCollection = new ArrayCollection();
@@ -73,6 +75,17 @@ package com.poc.gateway.model
 			
 			return _lastSwipe;
 		}
+		
+		public function get eventStartTime():TimeVO
+		{
+			return _eventStartTime;
+		}
+		
+		public function set eventStartTime(value:TimeVO):void
+		{
+			_eventStartTime = value;
+		}
+		
 		public function GatewayModel()
 		{
 			readRoles();
@@ -189,6 +202,8 @@ package com.poc.gateway.model
 				this.Roles.addItemAt(role,role.Index);
 			}
 		}
+
+
 		
 		
 	}

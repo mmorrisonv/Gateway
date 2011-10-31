@@ -31,7 +31,7 @@
 			<s:VGroup paddingTop="20" width="150" height="75%">		
 				
 				<view:LastSwipeInspectorPanel height="60" />	
-				<s:Scroller height="100%" width="100%" >				
+				<s:Scroller height="100%" width="100%" skinClass="com.poc.gateway.view.skins.scroller.scollerSkin">				
 					<view:EntryLog width="100%"   />
 				</s:Scroller>
 			</s:VGroup>
