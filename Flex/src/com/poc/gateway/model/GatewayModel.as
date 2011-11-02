@@ -95,7 +95,7 @@ package com.poc.gateway.model
 			//set eventDate
 			var date:Date = new Date();
 			var frmtr:spark.formatters.DateTimeFormatter = new spark.formatters.DateTimeFormatter();
-			frmtr.dateTimePattern = 'hh.mm-MM-dd-yy';
+			frmtr.dateTimePattern = 'hh.mm MM-dd-yy';
 			frmtr.format(date);
 			eventDate = frmtr.format(date);
 		} 
@@ -152,7 +152,26 @@ package com.poc.gateway.model
 				export += entry.person.Role.Name+ ',';
 				export += entry.startTime.timeStr+ ',';
 				export += entry.stopTime.timeStr+ ',';
-				export += (entry.stopTime.timestamp - entry.startTime.timestamp) || 'inf';
+				var personSecondCount:Number = (entry.stopTime.timestamp - entry.startTime.timestamp);
+				if( personSecondCount == 0 || isNaN(personSecondCount) )
+				{
+					export += 'inf';
+				}
+				else
+				{
+					var secStr:String = Math.floor( (personSecondCount%60) ).toString();
+					if(secStr.length == 1)
+						secStr = "0" + secStr;
+					
+					var minStr:String = Math.floor( ( (personSecondCount/60)%60 ) ).toString();
+					if(minStr.length == 1)
+						minStr = "0" + minStr
+							
+					var hourStr:String = Math.floor(  (personSecondCount/(60*60))%24 ).toString();
+					if(hourStr.length == 1)
+						hourStr = "0" + hourStr
+					export += hourStr + ':' + minStr + ':' + secStr ;
+				}
 				export += '\r\n';
 				
 			}
