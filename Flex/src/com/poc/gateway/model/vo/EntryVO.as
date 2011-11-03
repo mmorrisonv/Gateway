@@ -15,6 +15,7 @@ package com.poc.gateway.model.vo
 		static public const UPDATED :String = 'UPDATED';
 		
 		public var cardID : String;
+		public var setupTime : TimeVO; //if person swipes in before the event starts or before billable hours
 		public var startTime : TimeVO;
 		public var stopTime : TimeVO;
 		public var success : Boolean;
