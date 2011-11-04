@@ -36,7 +36,7 @@ package  com.poc.gateway.view
 			newPerson.Name = this.ui.pname.text;
 			newPerson.cardID = this.ui.pID.text;
 			//newPerson.Role = this.model.Roles[int( this.ui.pRate.text )];
-			newPerson.Role = this.ui.pRole.selectedItem;
+			newPerson.defaultRole = this.ui.pRole.selectedItem;
 			
 			this.model.Employees.addItem(newPerson);
 			this.model.writeEmployees();

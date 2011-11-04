@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		  xmlns:s="library://ns.adobe.com/flex/spark" 
-		  xmlns:mx="library://ns.adobe.com/flex/mx"
-		  
-		  paddingLeft="10">
+		  xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
 			import com.poc.gateway.controller.events.CustomEvent;
@@ -24,19 +22,23 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:HGroup>
-		<s:Label text="Entry Log" styleName="H2"/>
-		<mx:Text id="numEmployees" />
+	<s:HGroup gap="10">
+		<s:Image source="assets/images/icons/icon_log.png"/>
+		<s:Label text="entry log" styleName="H2"/>
 	</s:HGroup>
-	
-	<s:List id="entryLog" 
-			width="100%" borderVisible="false"
-			itemRenderer="com.poc.gateway.view.itemRenderer.EntryLogItemRenderer"
-			labelField="cardID" allowMultipleSelection="true"
-			change="entryLog_changeHandler(event)">
-		<s:layout>
-			<s:VerticalLayout gap="0" paddingBottom="0" paddingLeft="0" paddingRight="0"/>
-		</s:layout>
-	</s:List>
+	<s:Scroller height="100%" width="100%" skinClass="com.poc.gateway.view.skins.scroller.scollerSkin">	
+		<s:Group height="100%">
+			<s:List id="entryLog" 
+					width="100%" borderVisible="false"
+					itemRenderer="com.poc.gateway.view.itemRenderer.EntryLogItemRenderer"
+					labelField="cardID" allowMultipleSelection="true"
+					change="entryLog_changeHandler(event)">
+				<s:layout>
+					<s:VerticalLayout gap="0" paddingBottom="0" paddingLeft="0" paddingRight="0"/>
+				</s:layout>
+			</s:List>
+		</s:Group>
+
+	</s:Scroller>
 	
 </s:VGroup>

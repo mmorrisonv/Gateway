@@ -43,39 +43,41 @@ package com.poc.gateway.controller
 		
 					//look for this entry - means swipe out
 					var previousEntry:EntryVO = lookForEntry(event.cardID)
-					if( previousEntry != null )
-					{
+					if( previousEntry != null )	
+					{//user has previously swiped in
+						
 						if(previousEntry.present == true && previousEntry.currentTask != null)
-						{
-							//end this Entries current task, and add an endTime
-							previousEntry.present = false;
-							previousEntry.stopTime.dateObj = date;
-							
-							previousEntry.currentTask.timeOUT.dateObj = date;
-							previousEntry.currentTask.updated();
-							previousEntry.currentTask = null;
-							previousEntry.updated();
+						{//end this Entries current task, and add an endTime
+							previousEntry.endCurrentTask(new Date);
 							return;
 						}
-						else //create new task
-						{
-							//reset the endTime of this entry
-							previousEntry.present = true;
-							previousEntry.stopTime.dateObj = null;
+						else 
+						{//use has already worked this event, but is currently taskless - create new task
 							
-							previousEntry.currentTask = createNewTask(event.cardID,validPerson);
-							previousEntry.Tasks.addItemAt(previousEntry.currentTask,0);
-							previousEntry.updated();
+							if( this.model.eventStartTime.undefined )//check to see if event has started yet
+							{ //create an staging task
+								previousEntry.createNewTask(date,this.model.stagingRole);
+							}
+							else
+							{//reset the endTime of this entry
+								previousEntry.createNewTask(date,validPerson.defaultRole);
+							}
+							
 							return;
 						}
 					}
 					else
-					{
-						var newEntry:EntryVO = createNewEntry(event.cardID,validPerson);
-						newEntry.present = true;
-						newEntry.currentTask = createNewTask(event.cardID,validPerson);
-						newEntry.Tasks.addItemAt(newEntry.currentTask,0);
+					{//user NOT previsouly swiped in, create a new operative, and new task
 						
+						var newEntry:EntryVO = createNewEntry(event.cardID,validPerson);
+						if( this.model.eventStartTime.undefined )//check to see if event has started yet
+						{ //create an staging task
+							newEntry.createNewTask(date,this.model.stagingRole);
+						}
+						else
+						{//reset the endTime of this entry
+							newEntry.createNewTask(date,validPerson.defaultRole);
+						}
 						this.model.lastSwipe = newEntry;
 						this.model._entries.addItemAt(newEntry,0);
 					}
@@ -87,19 +89,7 @@ package com.poc.gateway.controller
 			}
 		}
 		
-		private function createNewTask(cardID:String,validPerson:PersonVO):TaskVO
-		{
-			//create task
-			var date:Date = new Date();
-			
-			var newTask:TaskVO = new TaskVO();
-			newTask.cardID = cardID;
-			newTask.current = true;
-			newTask.Role = validPerson.Role;
-			newTask.timeIN.dateObj = date;
 
-			return newTask;
-		}
 		
 		public function createNewEntry(cardID:String, person:PersonVO):EntryVO
 		{
@@ -109,7 +99,14 @@ package com.poc.gateway.controller
 			
 			entry.cardID = cardID;
 			
-			entry.startTime.dateObj = date;
+			if( this.model.eventStartTime.undefined )
+			{//event NOT started - record staging time
+				entry.setupTime.dateObj = date;
+			}
+			else
+			{//event STARTED - initiate from startTime
+				entry.startTime.dateObj = date;
+			}
 			
 			entry.success = false;
 			entry.person = person;

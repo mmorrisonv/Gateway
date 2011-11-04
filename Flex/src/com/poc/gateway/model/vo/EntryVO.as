@@ -9,6 +9,7 @@ package com.poc.gateway.model.vo
 	{
 		public function EntryVO(){
 			
+			setupTime = new TimeVO();
 			startTime = new TimeVO();
 			stopTime = new TimeVO();
 		}
@@ -26,6 +27,38 @@ package com.poc.gateway.model.vo
 		
 		public function updated():void{
 			this.dispatchEvent(new Event(EntryVO.UPDATED));
+		}
+		
+		public function endCurrentTask(time:Date):void{
+			this.present = false;
+			this.stopTime.dateObj = time;
+			
+			this.currentTask.timeOUT.dateObj = time;
+			this.updated();
+			this.currentTask.updated();
+			this.currentTask = null;
+		}
+		
+		
+		public function createNewTask(time:Date,role:RoleVO = null):void
+		{
+			this.present = true;
+			this.stopTime.dateObj = null;
+			
+			//create task
+			var newTask:TaskVO = new TaskVO();
+			newTask.cardID = person.cardID;
+			newTask.current = true;
+			if(role == null)
+				newTask.Role = person.defaultRole;
+			else
+				newTask.Role = role;
+			newTask.timeIN.dateObj = time;
+			
+			
+			this.currentTask = newTask;
+			this.Tasks.addItemAt(currentTask,0);
+			this.updated();
 		}
 	}
 	

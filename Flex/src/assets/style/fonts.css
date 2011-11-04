@@ -12,17 +12,30 @@
 }
 @font-face {
 	src:url("assets/fonts/HelveticaLTStdCond.otf");
+	fontFamily:"HelvCond";
+}
+@font-face {
+	src:url("assets/fonts/HelveticaLTStdLight.otf");
+	fontFamily:"HelvLight";
+}
+@font-face {
+	src:url("assets/fonts/HelveticaLTStdBold.otf");
 	fontFamily:"Helv";
 }
-global
-{
-	font-family: "Helv";
-	color:#151517;
-	/*	typographicCase:uppercase;*/
+@font-face {
+	src:url("assets/fonts/HelveticaLTStdRoman.otf");
+	fontFamily:"HelvRoman";
 }
+
 
 .Helv{
 	font-family:"Helv";	
+}
+.HelvLight{
+	font-family:"HelvLight";	
+}
+.HelvRoman{
+	font-family:"HelvRoman";	
 }
 .AVGarde{
 	font-family:"AVGarde";	
@@ -30,23 +43,26 @@ global
 
 .H2 
 {
-	font-family:"AVGarde";
-	fontSize:20;
+	font-family:"Helv";
+	fontSize:18px;
 	
 }
 
 .H1
 {
-	font-family:"AVGardeB";
-	
+	fontSize:34px;
+	font-family:"HelvLight";
+	color:#666666;
+}
+.simpleTextInput{
+	fontSize:14;	
 }
 
-.lightGray{
-	color:#75757d;	
+s|SkinnableTextBase:normalWithPrompt{
+	fontStyle:normal;
+	borderColor:#dcdcdc;
+	focusAlpha:0;
 }
 
-.Gray{
-	color:#606060;	
-}
 
 

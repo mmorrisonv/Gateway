@@ -10,6 +10,7 @@ package com.poc.gateway.model.vo
 		public var timeStr : String;
 		public var timeStrSml : String;
 		private var _dateObj : Date;
+		public var undefined:Boolean = true;
 
 		public function set dateObj(value:Date):void
 		{
@@ -31,6 +32,7 @@ package com.poc.gateway.model.vo
 				this.timeStr = "inf";
 				this.timeStrSml = "inf";
 			}
+			undefined = false;
 		}
 
 

@@ -10,7 +10,7 @@ package com.poc.gateway.model.vo
 		}
 		public var cardID : String;
 		public var Name   : String;
-		public var Role   : RoleVO;
+		public var defaultRole   : RoleVO;
 		public var created: Number;
 		public var deleted: Number;
 	}

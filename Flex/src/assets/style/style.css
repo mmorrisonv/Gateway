@@ -1,0 +1,30 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+global
+{
+	font-family: "Helv";
+	color:#999999;
+	/*	typographicCase:uppercase;*/
+}
+
+.color1
+{
+	
+}
+
+.lightGray{
+	color:#dddddd;	
+}
+
+.Gray{
+	color:#999999;	
+}
+
+
+#timeDisplay s|Label{
+	fontSize:30px;
+	fontFamily:"HelvRoman";
+	color:#4b4b4b;
+}

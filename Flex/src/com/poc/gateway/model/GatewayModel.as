@@ -24,10 +24,12 @@ package com.poc.gateway.model
 		public var _entries:ArrayCollection = new ArrayCollection();
 		
 		public var eventDate:String = new String();
-		private var _eventStartTime:TimeVO = new TimeVO();
+		public var eventStartTime:TimeVO = new TimeVO();
 		
 		public var Employees:ArrayCollection = new ArrayCollection();
+		//public var Operatives:ArrayCollection = new ArrayCollection();
 		public var Roles:ArrayCollection = new ArrayCollection();
+		public var stagingRole:RoleVO = new RoleVO();
 		
 		private var employeeFile:File;
 		private var entryFile:File;
@@ -47,6 +49,7 @@ package com.poc.gateway.model
 		
 		}*/
 		private var _currentSwipeInspection:EntryVO;
+
 
 		public function get currentSwipeInspection():EntryVO
 		{
@@ -75,16 +78,8 @@ package com.poc.gateway.model
 			
 			return _lastSwipe;
 		}
+
 		
-		public function get eventStartTime():TimeVO
-		{
-			return _eventStartTime;
-		}
-		
-		public function set eventStartTime(value:TimeVO):void
-		{
-			_eventStartTime = value;
-		}
 		
 		public function GatewayModel()
 		{
@@ -99,6 +94,29 @@ package com.poc.gateway.model
 			frmtr.format(date);
 			eventDate = frmtr.format(date);
 		} 
+		
+		public function startEvent():void
+		{
+			var now:TimeVO = new TimeVO();
+			now.dateObj = new Date();
+			this.eventStartTime = now;
+			//todo: tell everyoen to login
+			swipeInAllEmployees();
+		}
+		
+		public function swipeInAllEmployees():void
+		{
+			// TODO: swipe in all employees
+			for each(var entry:EntryVO in this._entries)
+			{
+				entry.startTime = this.eventStartTime;
+				if(entry.currentTask != null)
+					entry.endCurrentTask(new Date);
+				entry.createNewTask(new Date,null);
+				entry.updated();
+			}
+		}
+		
 		public function readEmployees():void
 		{
 			
@@ -124,7 +142,7 @@ package com.poc.gateway.model
 				var employee:PersonVO = new PersonVO;
 				employee.Name = employeeImport.name
 				employee.cardID = employeeImport.cardid;
-				employee.Role = this.Roles[employeeImport.role];
+				employee.defaultRole = this.Roles[employeeImport.role];
 				employee.created = employeeImport.created;
 				employee.deleted = employeeImport.deleted;
 					
@@ -149,7 +167,7 @@ package com.poc.gateway.model
 				
 				export += entry.person.Name + ',';
 				export += entry.person.cardID+ ',';
-				export += entry.person.Role.Name+ ',';
+				export += entry.person.defaultRole.Name+ ',';
 				export += entry.startTime.timeStr+ ',';
 				export += entry.stopTime.timeStr+ ',';
 				var personSecondCount:Number = (entry.stopTime.timestamp - entry.startTime.timestamp);
@@ -220,6 +238,16 @@ package com.poc.gateway.model
 				role.Color = roleImport.color;
 				this.Roles.addItemAt(role,role.Index);
 			}
+
+			//add a role for being staged in an event
+			var stagingRole:RoleVO = new RoleVO();
+			stagingRole.Name = "staging";
+			stagingRole.Name_short = "STG";
+			stagingRole.Index = this.Roles.length;
+			stagingRole.Rate = 0;
+			stagingRole.Color = "ffffff";
+			this.Roles.addItemAt(stagingRole,stagingRole.Index);
+			this.stagingRole = stagingRole;
 		}
 
 

@@ -129,7 +129,7 @@
 			
 		</s:List>
 
-		<s:Rect right="4" width="4" height="10" >
+		<s:Rect left="120" width="4" height="10" >
 			<s:fill>
 				<s:SolidColor id="rectSignedIn" color="0xA8C078"/>
 			</s:fill>

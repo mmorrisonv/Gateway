@@ -22,8 +22,7 @@
 	<s:VGroup paddingTop="20" height="100%" width="100%">
 
 			
-			<view:PanelPersonInspector height="100"/>
-			<view:PanelPersonCreator height="250"/>
+
 		
 	</s:VGroup>
 

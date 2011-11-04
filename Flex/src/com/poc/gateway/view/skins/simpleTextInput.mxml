@@ -20,7 +20,7 @@
 -->
 <s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
     xmlns:fb="http://ns.adobe.com/flashbuilder/2009" 
-    alpha.disabledStates="0.5" blendMode="normal">
+    alpha.disabledStates="0.5" blendMode="normal" height="28">
 
     <fx:Metadata>
     <![CDATA[ 
@@ -226,13 +226,13 @@
     <s:Rect id="background" left="1" right="1" top="1" bottom="1">
         <s:fill>
             <!--- @private Defines the background fill color. -->
-            <s:SolidColor id="bgFill" color="0x4c4c56" />
+            <s:SolidColor id="bgFill" color="0xFFFFFF" />
         </s:fill>
     </s:Rect>
     
     <!-- shadow -->
     <!--- @private -->
-    <s:Rect left="1" top="1" right="1" height="1" id="shadow">
+    <s:Rect left="1" top="1" right="1" height="1" id="shadow" visible="false">
         <s:fill>
             <s:SolidColor color="0x000000" alpha="0.12" />
         </s:fill>
@@ -242,11 +242,11 @@
     <!--- @copy spark.components.supportClasses.SkinnableTextBase#textDisplay -->
     <s:RichEditableText id="textDisplay"
               verticalAlign="middle"
-              widthInChars="10" styleName="HelvLight color1"
+              widthInChars="10" styleName="simpleTextInput"
               left="1" right="1" top="1" bottom="1" />
     <!--- Defines the Label that is used for prompt text. The includeInLayout property is false so the prompt text does not affect measurement. -->
     <s:Label id="promptDisplay" maxDisplayedLines="1"
-                verticalAlign="middle" styleName="HelvLight"
+                verticalAlign="middle"
                 mouseEnabled="false" mouseChildren="false"
                 includeIn="normalWithPrompt,disabledWithPrompt" 
                 includeInLayout="false"

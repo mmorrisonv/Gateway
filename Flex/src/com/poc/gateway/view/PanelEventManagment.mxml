@@ -13,6 +13,7 @@
 			private var secondsSinceStart : int;
 			
 			static public var EXPORT_EVENT:String = "ee";
+			static public var START_EVENT:String = "se";
 			
 			protected function group1_creationCompleteHandler(event:FlexEvent):void
 			{
@@ -33,7 +34,8 @@
 			protected function start_clickHandler(event:MouseEvent):void
 			{
 				this.timer.start();
-				
+				var e:Event = new Event(START_EVENT,true, false);
+				dispatchEvent(e);
 			}
 			
 			protected function onTimeUpdated(event:TimerEvent):void
@@ -62,7 +64,7 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:Rect width="100%" height="100%">
+	<s:Rect width="100%" height="100%" visible="false">
 		<s:fill>
 			<s:SolidColor color="0x4c4c56"/>
 		</s:fill>
@@ -71,19 +73,25 @@
 		
 
 			
-		<s:TextInput id="cardInput" x="20" width="200" height="40" prompt="Event Name"
-					 fontSize="24"  verticalCenter="0"
+		<s:TextInput id="cardInput"  width="200" height="30" prompt="event name"
+					 fontSize="18"  verticalCenter="0"
 					 change="cardInput_changeHandler(event)" styleName="Helv"
 					 skinClass="com.poc.gateway.view.skins.largeSimple" 
-					 contentBackgroundColor="0x4c4c56" borderAlpha="0" focusColor="0x74747d" focusThickness="0"/>
+					 contentBackgroundColor="0xe6e6e6" borderAlpha="0" focusColor="0x74747d" focusThickness="0"/>
 	
 		
-		<s:HGroup x="240" width="100" height="10" verticalCenter="0" >
-			<s:Label id="hourDisp"  />
-			<s:Label text=":"/>
-			<s:Label id="minuteDisp"  />
-			<s:Label text=":"/>
-			<s:Label id="secondsDisp"  />
+		<s:HGroup right="0"   verticalCenter="0"   >
+			<s:Image source="assets/images/icons/icon_time.png" verticalCenter="0" />
+			<s:Label text="duration" styleName="Helv Gray" fontSize="18" />	
+			<s:Spacer width="10" />
+			<s:HGroup id="timeDisplay" gap="-1">
+				<s:Label id="hourDisp" verticalCenter="0" />
+				<s:Label text=":"/>
+				<s:Label id="minuteDisp"  />
+				<s:Label text=":"/>
+				<s:Label id="secondsDisp"  />
+			</s:HGroup>
+
 		</s:HGroup>
 		<s:Button x="330" verticalCenter="0" label="Start Event" click="start_clickHandler(event)"/>
 		<s:Button x="420" verticalCenter="0" label="Export Event" click="export_clickHandler(event)"/>

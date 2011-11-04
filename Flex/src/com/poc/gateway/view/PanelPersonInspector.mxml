@@ -6,12 +6,23 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<mx:VBox>
+	<s:VGroup paddingTop="20" paddingLeft="24" paddingRight="24">
+		<s:HGroup>
+			<s:Image source="assets/images/icons/icon_key.png" verticalCenter="0"/>
+			<s:Label text="edit employee" styleName="H2" verticalCenter="0"/>
+		</s:HGroup>
 		
-		<s:Label text="Person Inspector"/>
-		<s:Image id="image"/>
-		<mx:HBox><s:Label text="Name: "/><s:Label id="pname" /></mx:HBox>
-		<mx:HBox><s:Label text="Time-In: "/><s:Label id="swipeTime" /></mx:HBox>
-		<mx:HBox><s:Label text="Position: "/><s:DropDownList id="rate" labelField="Name" /></mx:HBox>
-	</mx:VBox>
+		<s:HGroup>
+			<s:Label text="Name: "/>
+			<s:Label id="pname" />
+		</s:HGroup>
+		<s:HGroup>
+			<s:Label text="Time-In: "/>
+			<s:Label id="swipeTime" />
+		</s:HGroup>
+		<s:HGroup>
+			<s:Label text="Position: "/>
+			<s:DropDownList id="rate" labelField="Name" />
+		</s:HGroup>
+	</s:VGroup>
 </s:Group>
