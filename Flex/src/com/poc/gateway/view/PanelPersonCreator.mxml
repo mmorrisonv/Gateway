@@ -32,47 +32,50 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<mx:VBox paddingTop="20" paddingLeft="24" paddingRight="24">
+	<s:VGroup width="100%" paddingTop="20" paddingLeft="24" paddingRight="24">
 		
 
-		<mx:HBox>
+		<s:HGroup paddingTop="20" paddingBottom="16">
 			<s:Image source="assets/images/icons/icon_plus.png"/>
 			<s:Label text="create new employee" styleName="H2" width="100%"/>
-		</mx:HBox>
-		<mx:HBox>
+		</s:HGroup>
+		<s:HGroup width="100%" gap="10">
 			
-			<mx:VBox>
-				<mx:HBox><s:TextInput id="pname"  prompt="Name" skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/></mx:HBox>
-				<mx:HBox><s:TextInput id="pID" prompt="Card Number or ID "  skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/></mx:HBox>
-			</mx:VBox>
+			<s:VGroup width="100%" gap="10">
+				<s:TextInput id="pname"  prompt="Name" width="100%"  skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/>
+				<s:TextInput id="pID" prompt="Card Number or ID" width="100%"  skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/>
+			</s:VGroup>
 	
-			<mx:VBox>
-				<mx:HBox><s:DropDownList id="pRole" labelField="Name" width="100%" /></mx:HBox>
-				<mx:HBox><s:TextInput id="phone" prompt="Phone "  skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/></mx:HBox>			
-			</mx:VBox>
+			<s:VGroup width="100%" gap="10">
+				<s:DropDownList id="pRole" labelField="Name" width="100%" height="28" 
+										 skinClass="com.poc.gateway.view.skins.simpleDropDown"/>
+				<s:TextInput id="phone" prompt="Phone"  width="100%"
+							 skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/>			
+			</s:VGroup>
 	
-			<mx:VBox>
-			<mx:HBox><s:TextInput id="email" prompt="Email "  skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/></mx:HBox> 
-			<s:Group width="160" height="28" 
-					 click="onAddNew_clickHandler(event)" 
-					 useHandCursor="true" buttonMode="true">
-				<s:Rect width="100%" height="100%">
-					<s:fill>
-						<s:LinearGradient rotation="90">
-							<s:GradientEntry color="0xf5f5f5"/>
-							<s:GradientEntry color="0xf5f5f5" ratio=".25"/>
-							<s:GradientEntry color="0xeeeeee"/>
-						</s:LinearGradient>
-					</s:fill>
-					<s:stroke>
-						<s:SolidColorStroke color="0xcacaca"/>
-					</s:stroke>
-				</s:Rect>
-				<s:Label text="save user" styleName="Gray" fontSize="14" horizontalCenter="-2" verticalCenter="0"/>
-			</s:Group>
-			</mx:VBox>
+			<s:VGroup width="100%" gap="10">
+				<s:TextInput id="email" prompt="Email" width="100%"
+							 skinClass="com.poc.gateway.view.skins.simpleTextInput" focusAlpha="0"/> 
+				<s:Group width="100%" height="28" 
+						 click="onAddNew_clickHandler(event)" 
+						 useHandCursor="true" buttonMode="true">
+					<s:Rect width="100%" height="100%">
+						<s:fill>
+							<s:LinearGradient rotation="90">
+								<s:GradientEntry color="0xf5f5f5"/>
+								<s:GradientEntry color="0xf5f5f5" ratio=".25"/>
+								<s:GradientEntry color="0xeeeeee"/>
+							</s:LinearGradient>
+						</s:fill>
+						<s:stroke>
+							<s:SolidColorStroke color="0xcacaca"/>
+						</s:stroke>
+					</s:Rect>
+					<s:Label text="save user" styleName="Gray" fontSize="14" horizontalCenter="-2" verticalCenter="0"/>
+				</s:Group>
+			</s:VGroup>
 	
 			
-		</mx:HBox>	
-	</mx:VBox>
+		</s:HGroup>	
+	</s:VGroup>
 </s:Group>

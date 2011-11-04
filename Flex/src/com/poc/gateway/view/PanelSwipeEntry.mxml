@@ -33,7 +33,7 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	
-	<s:VGroup  height="100%" width="100%" 
+	<s:VGroup  height="100%" width="100%" gap="16"
 			   paddingTop="20" paddingRight="24" paddingLeft="24">
 		<s:HGroup>
 			<s:Image source="assets/images/icons/icon_edit.png" />
