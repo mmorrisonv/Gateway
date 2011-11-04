@@ -8,13 +8,32 @@
 			import mx.events.FlexEvent;
 			
 			private var _label:String;
+			private var _icon:String;
+			private var _fontSize:String;
+			private var _bgcolor:Object;
 	
 			protected function group1_creationCompleteHandler(event:FlexEvent):void
 			{
 				// TODO Auto-generated method stub
-				updateLabel();
+				updateButton();
 			}
-
+			public function updateButton():void
+			{
+				this.text.text = _label;
+				this.text.setStyle('fontSize',this._fontSize);
+				this.iconDisplay.source = this._icon;
+				this.text.setStyle('color', this.getStyle('color'));
+				if(_bgcolor != null){
+					this.bgRect.color = _bgcolor as uint;
+					this.gradientRect.visible = false;
+				}
+				else
+				{
+					this.bgRect.color = 0xf5f5f5;
+					this.gradientRect.visible = true;
+				}
+				
+			}
 			public function get label():String
 			{
 				return _label;
@@ -23,12 +42,40 @@
 			public function set label(value:String):void
 			{
 				_label = value;
-				
+				updateButton();
 			}
-			public function updateLabel():void
-			{
-				this.text.text = _label;
 
+
+			public function get fontSize():String
+			{
+				return _fontSize;
+			}
+
+			public function set fontSize(value:String):void
+			{
+				_fontSize = value;
+				updateButton();
+			}
+
+			public function get icon():String
+			{
+				return _icon;
+			}
+
+			public function set icon(value:String):void
+			{
+				_icon = value;
+				updateButton();
+			}
+
+			public function get bgcolor():Object
+			{
+				return _bgcolor;
+			}
+
+			public function set bgcolor(value:Object):void
+			{
+				_bgcolor = value;
 			}
 
 	
@@ -40,7 +87,13 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:Group useHandCursor="true" buttonMode="true" width="100%" height="100%">
+		
 		<s:Rect width="100%" height="100%">
+			<s:fill>
+				<s:SolidColor id="bgRect" color="0xf5f5f5"/>
+			</s:fill>
+		</s:Rect>
+		<s:Rect id="gradientRect" width="100%" height="100%">
 			<s:fill>
 				<s:LinearGradient rotation="90">
 					<s:GradientEntry color="0xf5f5f5"/>
@@ -52,6 +105,13 @@
 				<s:SolidColorStroke color="0xcacaca"/>
 			</s:stroke>
 		</s:Rect>
-		<s:Label id="text" styleName="Gray" fontSize="18" horizontalCenter="-2" verticalCenter="0"/>
+		<s:HGroup width="100%" height="100%" gap="0"
+				  verticalCenter="0" horizontalCenter="0" verticalAlign="middle" horizontalAlign="center"
+				  paddingLeft="16" paddingRight="16">
+			<s:Image id="iconDisplay" />
+			<s:Label id="text" styleName="Gray" fontSize="18" paddingTop="2.4" />
+		</s:HGroup>
+
+		
 	</s:Group>
 </s:Group>

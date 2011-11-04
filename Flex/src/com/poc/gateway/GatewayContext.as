@@ -24,6 +24,7 @@ package com.poc.gateway
 			mediatorMap.mapView(PanelPersonInspector,PanelPersonInspectorMediator);
 			mediatorMap.mapView(PanelPersonCreator,PanelPersonCreatorMediator);
 			mediatorMap.mapView(PanelEventManagment,PanelEventManagmentMediator);
+			mediatorMap.mapView(PanelEventSettings,PanelEventSettingsMediator);
 			
 			this.commandMap.mapEvent(SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,SwipeCommand);
 			

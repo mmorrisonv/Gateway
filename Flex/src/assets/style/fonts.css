@@ -23,6 +23,16 @@
 	fontFamily:"Helv";
 }
 @font-face {
+	src:url("assets/fonts/HelveticaLTStdBold.otf");
+	fontFamily:"Helv";
+	fontWeight:bold;
+}
+@font-face {
+	src:url("assets/fonts/HelveticaLTStdBold.otf");
+	fontFamily:"Helv";
+	fontWeight:italic;
+}
+@font-face {
 	src:url("assets/fonts/HelveticaLTStdRoman.otf");
 	fontFamily:"HelvRoman";
 }

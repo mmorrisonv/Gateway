@@ -6,7 +6,7 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<mx:VBox paddingLeft="10">
+	<mx:VBox width="100%" paddingLeft="20" paddingRight="20">
 		
 			<s:Label text="Last Swipe" styleName="H2 " fontSize="20"/>
 			<mx:HBox><s:Label text="Name: "/><s:Label id="pname" styleName="text Gray" /></mx:HBox>

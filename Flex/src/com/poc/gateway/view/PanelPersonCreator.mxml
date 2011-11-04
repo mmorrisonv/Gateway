@@ -35,7 +35,7 @@
 	<s:VGroup width="100%" paddingTop="20" paddingLeft="24" paddingRight="24">
 		
 
-		<s:HGroup paddingTop="20" paddingBottom="16">
+		<s:HGroup paddingTop="20" paddingBottom="16" gap="12">
 			<s:Image source="assets/images/icons/icon_plus.png"/>
 			<s:Label text="create new employee" styleName="H2" width="100%"/>
 		</s:HGroup>
