@@ -1,0 +1,10 @@
+*.project
+*.settings
+*.air
+Flex/export/
+backup/
+bin-debug/
+html-template/
+bin-release/
+.actionScriptProperties
+.flexProperties
