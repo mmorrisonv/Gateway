@@ -6,6 +6,8 @@ package com.poc.gateway.model
 	{
 		public static const VALID_SWIPE:String = "VALID_SWIPE";
 		public static var CURRENT_INSPECTION_CHANGED:String = "CURRENT_INSPECTION_CHANGED";
+		public static var EVENT_STARTED:String = "ESTAR";
+		public static var EVENT_STOPPED:String = "ESTPD";
 		
 		public function ModelEvent(type:String)
 		{

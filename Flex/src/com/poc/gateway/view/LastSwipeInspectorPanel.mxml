@@ -2,15 +2,34 @@
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
 		 xmlns:mx="library://ns.adobe.com/flex/mx"
-		 width="140">
+		 >
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<s:Power id="powerEaser"/>
+		<s:Resize id="resizer" target="{this}" duration="300" easer="{powerEaser}"/>
+		<s:Fade id="fxFader" target="{this}" duration="300" easer="{powerEaser}"/> 
 	</fx:Declarations>
-	<mx:VBox width="100%" paddingLeft="20" paddingRight="20">
+	<s:Rect width="100%" height="100%">
+		<s:fill>
+			<s:SolidColor color="0xefefef" />
+		</s:fill>
+		<s:stroke >
+			<s:SolidColorStroke color="0xcacaca"/>
+		</s:stroke>
+	</s:Rect>
+	
+
+	
+	<s:HGroup width="100%" paddingLeft="20" paddingRight="20" verticalAlign="middle" verticalCenter="0">
 		
-			<s:Label text="Last Swipe" styleName="H2 " fontSize="20"/>
-			<mx:HBox><s:Label text="Name: "/><s:Label id="pname" styleName="text Gray" /></mx:HBox>
-			<mx:HBox><s:Label text="Time: "/><s:Label id="swipeTime" styleName="text Gray"/></mx:HBox>
-				
-	</mx:VBox>
+
+		<s:HGroup gap="0" verticalAlign="middle" >
+			<s:Image source="assets/images/icons/icon_checkstyled.png" height="12" smooth="true"/>
+			<s:Label  width="150" text="last swipe" styleName="H2 " fontSize="16"/>
+		</s:HGroup>
+		
+			<s:Label id="pname" styleName="text Gray" />
+			<s:Label id="swipeTime" styleName="text Gray"/>
+		
+	</s:HGroup>
 </s:Group>

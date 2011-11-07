@@ -27,7 +27,7 @@ package  com.poc.gateway.view
 		
 		protected function checkKey(event:KeyboardEvent):void
 		{
-			trace(event.charCode)
+			//trace(event.charCode)
 			if(event.charCode == 13)
 				onNewCardSwiped(null);
 		}

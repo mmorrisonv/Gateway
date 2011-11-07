@@ -2,7 +2,7 @@
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
 				xmlns:s="library://ns.adobe.com/flex/spark" 
 				xmlns:mx="library://ns.adobe.com/flex/mx" 
-				autoDrawBackground="false"
+				autoDrawBackground="false" width="100%"
 				creationComplete="creationCompleteHandler(event)">
 	<fx:Script>
 		<![CDATA[
@@ -32,7 +32,7 @@
 			public function updateItemRenderer(e:Event=null)  : void
 			{	
 				
-				this.lbl1.text = this.task.timeIN.timeStrSml + '-' + this.task.timeOUT.timeStrSml;
+				this.lbl1.text = this.task.timeIN.timeStrSml + '  -  ' + this.task.timeOUT.timeStrSml;
 				this.posInitial.text = this.task.Role.Name_short;
 				this.rectRate.color = uint('0x'+this.task.Role.Color);
 			}
@@ -40,17 +40,15 @@
 		]]>
 	</fx:Script>
 	
-	<s:Label id="lbl1"/>
+	<s:Label id="lbl1" styleName="HelvLight"/>
 	
-	<s:Group right="0" verticalCenter="0" width="15">
+	<s:HGroup right="0" verticalCenter="0" verticalAlign="middle" gap="3">
 		<s:Label id="posInitial" verticalCenter="0"/>
-		<s:Ellipse  width="4" height="4" verticalCenter="0"
-					x="6">
-			<s:fill>
-				<s:SolidColor id="rectRate" color="0x567E3A"/>
-			</s:fill>
+		<s:Ellipse  width="4" height="4" verticalCenter="0" >
+			<s:fill><s:SolidColor id="rectRate" color="0x567E3A"/></s:fill>
 		</s:Ellipse>
-	</s:Group>
+		<s:Spacer width="4" />
+	</s:HGroup>
 
 	
 </s:ItemRenderer>

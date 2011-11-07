@@ -1,0 +1,15 @@
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\RFID Reader.exe
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\RFID Reader.xml
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\RFID Reader.pdb
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\bin\Debug\RFID Reader.exe.manifest
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\bin\Debug\RFID Reader.application
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\bin\Debug\RFID Reader.exe
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\bin\Debug\RFID Reader.pdb
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\bin\Debug\RFID Reader.xml
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\ResolveAssemblyReference.cache
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\RFID_Reader.Form1.resources
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\RFID_Reader.Resources.resources
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\ResGen.read.1.tlog
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\ResGen.write.1.tlog
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\RFID Reader.exe.manifest
+E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\RFID Reader\RFID Reader\obj\Debug\RFID Reader.application

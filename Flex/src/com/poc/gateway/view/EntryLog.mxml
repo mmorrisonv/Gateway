@@ -27,7 +27,7 @@
 		<s:Label text="entry log" styleName="H2"/>
 	</s:HGroup>
 	<s:Scroller height="100%" width="100%" skinClass="com.poc.gateway.view.skins.scroller.scollerSkin">	
-		<s:Group height="100%">
+		<s:Group height="100%" width="100%">
 			<s:List id="entryLog" 
 					width="100%" borderVisible="false"
 					itemRenderer="com.poc.gateway.view.itemRenderer.EntryLogItemRenderer"

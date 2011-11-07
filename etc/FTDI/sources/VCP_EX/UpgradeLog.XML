@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="VCP_EX">
+</Property><Property Name="Solution File" Value="E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\VCP_EX\VCP_EX.sln">
+</Property><Property Name="Date" Value="Sunday, November 06, 2011">
+</Property><Property Name="Time" Value="14:52 PM">
+</Property></Properties><Event ErrorLevel="0" Project="VCP_EX" Source="VCP_EX\VCP_EX.vcproj" Description="Converting project file 'E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\VCP_EX\VCP_EX\VCP_EX.vcproj'.">
+</Event><Event ErrorLevel="1" Project="VCP_EX" Source="VCP_EX\VCP_EX.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="VCP_EX" Source="VCP_EX\VCP_EX.vcproj" Description="Done converting to new project file 'E:\Dropbox\Work2011\GatewayApp\etc\FTDI\sources\VCP_EX\VCP_EX\VCP_EX.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="VCP_EX" Source="VCP_EX\VCP_EX.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="VCP_EX.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="VCP_EX.sln" Description="Converted">
+</Event></UpgradeLog>

@@ -1,0 +1,44 @@
+﻿Build started 11/6/2011 10:56:53 AM.
+     1>Project "E:\Dropbox\Backups\transfers\dlpvcc2\USBtest.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file ".\Debug\USBtest.lastbuildstate".
+       InitializeBuildStatus:
+         Touching ".\Debug\USBtest.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Debug\USBtest.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug\USBtest.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt USBtest.cpp USBtestDlg.cpp
+         USBtestDlg.cpp
+     1>e:\dropbox\backups\transfers\dlpvcc2\usbtestdlg.cpp(943): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+         USBtest.cpp
+     1>e:\dropbox\backups\transfers\dlpvcc2\usbtest.cpp(78): warning C4996: 'CWinApp::Enable3dControlsStatic': CWinApp::Enable3dControlsStatic is no longer needed. You should remove this call.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\atlmfc\include\afxwin.h(5347) : see declaration of 'CWinApp::Enable3dControlsStatic'
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0600 /l"0x0409" /nologo /fo".\Debug\USBtest.res" USBtest.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\Debug\USBtest.exe.embed.manifest.res" .\Debug\USBtest_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\USBtest.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:".\Debug\USBtest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Dropbox\Backups\transfers\dlpvcc2\Debug\USBtest.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\USBtest.lib" /MACHINE:X86 .\Debug\USBtest.res
+         .\Debug\USBtest.exe.embed.manifest.res
+         .\Debug\StdAfx.obj
+         .\Debug\USBtest.obj
+         .\Debug\USBtestDlg.obj
+       Manifest:
+         Deleting file ".\Debug\USBtest.exe.embed.manifest".
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\Debug\USBtest.exe.embed.manifest" /manifest .\Debug\USBtest.exe.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\Debug\USBtest.exe.embed.manifest.res" .\Debug\USBtest_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\USBtest.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:".\Debug\USBtest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Dropbox\Backups\transfers\dlpvcc2\Debug\USBtest.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\USBtest.lib" /MACHINE:X86 .\Debug\USBtest.res
+         .\Debug\USBtest.exe.embed.manifest.res
+         .\Debug\StdAfx.obj
+         .\Debug\USBtest.obj
+         .\Debug\USBtestDlg.obj
+     1>LINK : fatal error LNK1104: cannot open file '.\Debug\USBtest.ilk'
+     1>Done Building Project "E:\Dropbox\Backups\transfers\dlpvcc2\USBtest.vcxproj" (rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:07.33

@@ -25,6 +25,8 @@
 				this.text.setStyle('color', this.getStyle('color'));
 				if(_bgcolor != null){
 					this.bgRect.color = _bgcolor as uint;
+					//trace(_bgcolor);
+					//trace(this.bgRect[getStyle("color")])
 					this.gradientRect.visible = false;
 				}
 				else
@@ -76,6 +78,7 @@
 			public function set bgcolor(value:Object):void
 			{
 				_bgcolor = value;
+				updateButton();
 			}
 
 	

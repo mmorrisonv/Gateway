@@ -25,6 +25,9 @@ package com.poc.gateway.model
 		
 		public var eventDate:String = new String();
 		public var eventStartTime:TimeVO = new TimeVO();
+		public var eventStopTime:TimeVO;
+		public var eventRunning:Boolean = false;
+		public var eventStaging:Boolean = true;
 		
 		public var Employees:ArrayCollection = new ArrayCollection();
 		//public var Operatives:ArrayCollection = new ArrayCollection();
@@ -49,6 +52,7 @@ package com.poc.gateway.model
 		
 		}*/
 		private var _currentSwipeInspection:EntryVO;
+		
 
 
 		public function get currentSwipeInspection():EntryVO
@@ -97,13 +101,44 @@ package com.poc.gateway.model
 		
 		public function startEvent():void
 		{
+			
+			//let other components know the event has started
+			this.dispatch(new ModelEvent(ModelEvent.EVENT_STARTED) );
+			
 			var now:TimeVO = new TimeVO();
 			now.dateObj = new Date();
 			this.eventStartTime = now;
+			this.eventRunning = true;
 			//todo: tell everyoen to login
-			swipeInAllEmployees();
+			if(this.eventStaging)
+				swipeInAllEmployees();
+			this.eventStaging = false;
+		}
+		public function stopEvent():void
+		{
+			//let other components know the event has started
+			this.dispatch(new ModelEvent(ModelEvent.EVENT_STOPPED) );
+			
+			var now:TimeVO = new TimeVO();
+			now.dateObj = new Date();
+			this.eventStopTime = now;
+			this.eventRunning = false;
+			//todo: tell everyoen to login
+			swipeOutAllEmployees();
 		}
 		
+		private function swipeOutAllEmployees():void
+		{
+			// TODO: swipe out all employees
+			
+			for each(var entry:EntryVO in this._entries)
+			{
+				entry.stopTime = this.eventStartTime;
+				if(entry.currentTask != null)
+					entry.endCurrentTask(new Date);
+				entry.updated();
+			}
+		}
 		public function swipeInAllEmployees():void
 		{
 			// TODO: swipe in all employees
@@ -112,7 +147,7 @@ package com.poc.gateway.model
 				entry.startTime = this.eventStartTime;
 				if(entry.currentTask != null)
 					entry.endCurrentTask(new Date);
-				entry.createNewTask(new Date,null);
+				entry.createNewTask(new Date);
 				entry.updated();
 			}
 		}

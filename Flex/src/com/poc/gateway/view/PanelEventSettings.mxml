@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:skins="com.poc.gateway.view.skins.*" >
+		 xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:skins="com.poc.gateway.view.skins.*" 
+		 creationComplete="group1_creationCompleteHandler(event)">
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
@@ -13,7 +14,8 @@
 			private var secondsSinceStart : int;
 			
 			static public var EXPORT_EVENT:String = "ee";
-			static public var START_EVENT:String = "se";
+			static public var STARTSTOP_EVENT:String = "se";
+			
 			
 
 			
@@ -26,7 +28,7 @@
 			protected function start_clickHandler(event:MouseEvent):void
 			{
 				//this.timer.start();
-				var e:Event = new Event(START_EVENT,true, false);
+				var e:Event = new Event(STARTSTOP_EVENT,true, false);
 				dispatchEvent(e);
 			}
 			
@@ -35,6 +37,16 @@
 			{
 				var e:Event = new Event(EXPORT_EVENT,true, false);
 				dispatchEvent(e);
+			}
+			
+
+			
+			protected function group1_creationCompleteHandler(event:FlexEvent):void
+			{
+				var wNum:Number = this.width - (this.exportBtn.width + 20 + this.saveBtn.width + this.startstopButton.width);
+				var componentPadding:Number = 40;
+				this.eventName.width = wNum - componentPadding;
+				
 			}
 			
 		]]>
@@ -56,21 +68,21 @@
 		</s:HGroup>
 
 		
-		<s:HGroup height="36" gap="10">
-			<s:TextInput id="eventName"  width="100" height="36" prompt="event name"
+		<s:HGroup height="36" gap="10" width="100%">
+			
+			<s:TextInput id="eventName"  width="100%" height="36" prompt="event name"
 						 fontSize="14"  verticalCenter="0" paddingLeft="10"
 						 change="cardInput_changeHandler(event)" styleName="Helv"
 						 skinClass="com.poc.gateway.view.skins.simpleTextInput" 
 						 borderAlpha="0" focusColor="0x74747d" focusThickness="0"/>
-			<skins:simpleButton label="save" 
+			
+			<skins:simpleButton id="saveBtn" label="save" fontSize="14"
 								verticalCenter="0" height="100%"/>
-			<skins:simpleButton  label="start event" click="start_clickHandler(event)"
+			<skins:simpleButton  id="startstopButton" label="start event" click="start_clickHandler(event)"
 								 icon="assets/images/icons/icon_play.png" fontSize="14"
 								 verticalCenter="0" height="100%" bgcolor="0xa1cf00" color="0xffffff"/>
-			<skins:simpleButton  label="stop event" bgcolor="0xf43a3a" fontSize="14"
-								 icon="assets/images/icons/icon_stop.png"
-								 verticalCenter="0" height="100%" color="0xffffff"/>
-			<skins:simpleButton  label="export event" color="0xffffff" bgcolor="0x57bfec"
+			
+			<skins:simpleButton  id="exportBtn" label="export event" color="0xffffff" bgcolor="0x57bfec"
 								 icon="assets/images/icons/icon_export.png" fontSize="14"
 								 click="export_clickHandler(event)" verticalCenter="0" width="100%" height="100%"/>		
 		</s:HGroup>

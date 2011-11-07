@@ -26,7 +26,7 @@ package com.poc.gateway.controller
 			
 			if ( event.type == SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE ) 
 			{
-				
+				this.model._entries.refresh();
 				var validPerson:PersonVO;
 				var validSwipe:Boolean = false;
 				//check against valid cards

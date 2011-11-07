@@ -1,0 +1,28 @@
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Debug\RFID Reader.exe
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Debug\RFID Reader.pdb
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Debug\RFID Reader.xml
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID_Reader.Form1.resources
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID_Reader.Resources.resources
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID Reader.vbproj.GenerateResource.Cache
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID Reader.exe
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID Reader.xml
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID Reader.pdb
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Release\RFID Reader.exe.manifest
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Release\RFID Reader.application
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Release\RFID Reader.exe
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Release\RFID Reader.pdb
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Release\RFID Reader.xml
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID_Reader.Form1.resources
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID_Reader.Resources.resources
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID Reader.vbproj.GenerateResource.Cache
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID Reader.exe.manifest
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID Reader.application
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID Reader.exe
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID Reader.xml
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Release\RFID Reader.pdb
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Debug\RFID Reader.exe.manifest
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\bin\Debug\RFID Reader.application
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID Reader.exe.manifest
+C:\Documents and Settings\csavage\My Documents\Visual Studio 2005\Projects\RFID Reader\RFID Reader\obj\Debug\RFID Reader.application

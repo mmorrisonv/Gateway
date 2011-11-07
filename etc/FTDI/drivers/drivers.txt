@@ -1,0 +1,4 @@
+CDM20814 
+files pertaining to the D2XX FTDI drivers.
+The _Setup.exe excutable is a packaged driver
+other files are more advanded beta versions
