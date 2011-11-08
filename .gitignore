@@ -14,9 +14,9 @@ bin-release/
 *.DS_Store
 
 #Visual Studio files
-*.[Oo]bj
 *.exe
 *.pdb
+*.[Oo]bj
 *.user
 *.aps
 *.pch
@@ -40,4 +40,3 @@ obj/
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
-Ankh.NoLoad

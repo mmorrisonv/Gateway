@@ -13,6 +13,10 @@
   <ItemGroup>
     <ClCompile Include="src\rserver.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\rfidScanner.h" />
+    <ClInclude Include="src\tcpServer.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4E35B939-409D-481C-8A11-86002515072C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

@@ -1,15 +1,25 @@
-﻿Build started 11/7/2011 7:38:38 AM.
+﻿Build started 11/8/2011 12:50:24 AM.
      1>Project "E:\Dropbox\Work2011\GatewayApp\RFIDServer\RServer\RServer\RServer.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\RServer.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\RServer.unsuccessfulbuild".
        ClCompile:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\rserver.cpp
+         rserver.cpp
+         Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+         - add -D_WIN32_WINNT=0x0501 to the compiler command line; or
+         - add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.
+         Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Dropbox\Work2011\GatewayApp\RFIDServer\RServer\Bin\Debug\RServer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\RServer.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Dropbox\Work2011\GatewayApp\RFIDServer\RServer\Bin\Debug\RServer.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Dropbox\Work2011\GatewayApp\RFIDServer\RServer\Bin\Debug\RServer.lib" /MACHINE:X86 Debug\RServer.exe.embed.manifest.res
+         Debug\rserver.obj
        Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\RServer.exe.embed.manifest" /manifest Debug\RServer.exe.intermediate.manifest
          All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         RServer.vcxproj -> E:\Dropbox\Work2011\GatewayApp\RFIDServer\RServer\Bin\Debug\RServer.exe
        FinalizeBuildStatus:
          Deleting file "Debug\RServer.unsuccessfulbuild".
          Touching "Debug\RServer.lastbuildstate".
@@ -17,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.08
+Time Elapsed 00:00:03.77
