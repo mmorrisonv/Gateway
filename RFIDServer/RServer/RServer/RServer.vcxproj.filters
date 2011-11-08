@@ -26,5 +26,8 @@
     <ClInclude Include="src\rfidScanner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\ftd2xx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
