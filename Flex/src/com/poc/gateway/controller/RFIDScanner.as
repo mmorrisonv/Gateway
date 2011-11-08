@@ -30,6 +30,7 @@ package com.poc.gateway.controller
 		 */
 		public function connect(scannerSocketIPAddr:String, scannerSocketPort:Number):void
 		{
+			trace('RFIDScanner attempting to connect to port #' + scannerSocketPort);
 			_socket.connect(scannerSocketIPAddr, scannerSocketPort);
 		}
 		
@@ -57,8 +58,8 @@ package com.poc.gateway.controller
 		private function onIOError(event:IOErrorEvent):void
 		{
 			// dispatchEvent(...)  
-			trace('fault');
-			Alert.show('fault');
+			trace('RFIDScanner - fault');
+			//Alert.show('fault');
 		}
 		
 		/**
@@ -71,7 +72,7 @@ package com.poc.gateway.controller
 			{
 				var temp:String = _socket.readMultiByte(_socket.bytesAvailable, "ISO-8859-1");
 				trace('got something' + temp);
-				Alert.show('got something' + temp);
+				//Alert.show('got something' + temp);
 				// process buffer, throw an event, whatever you want
 				// processBuffer(temp);
 			}

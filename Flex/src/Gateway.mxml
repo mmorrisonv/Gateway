@@ -24,7 +24,7 @@
 				}
 				catch(e:Error){
 				}
-				rfider.connect('localhost',5331);
+				rfider.connect('localhost',5524);
 			}
 			
 		]]>
