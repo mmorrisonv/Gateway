@@ -3,107 +3,45 @@
 #include <iostream>
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
-
+#include <boost/smart_ptr.hpp>
+#include <boost/thread.hpp>
 
 using boost::asio::ip::tcp;
+const int max_length = 1024;
 
-class session
+typedef boost::shared_ptr<tcp::socket> socket_ptr;
+
+void session(socket_ptr sock)
 {
-public:
-	session(boost::asio::io_service& io_service)
-		: socket_(io_service)
-	{
-	}
+  try
+  {
+    for (;;)
+    {
+      char data[max_length];
 
-	tcp::socket& socket()
-	{
-		return socket_;
-	}
+      boost::system::error_code error;
+      size_t length = sock->read_some(boost::asio::buffer(data), error);
+      if (error == boost::asio::error::eof)
+        break; // Connection closed cleanly by peer.
+      else if (error)
+        throw boost::system::system_error(error); // Some other error.
 
-	void start()
-	{
-		/*socket_.async_read_some(boost::asio::buffer(data_, max_length),
-		boost::bind(&session::handle_read, this,
-		boost::asio::placeholders::error,
-		boost::asio::placeholders::bytes_transferred));*/
-		std::cout<<"socket setup"<<std::endl;
-		char wrtOut[256] = "connection";
-		size_t size= strlen(data_);
-		boost::asio::async_write(socket_,
-			boost::asio::buffer(wrtOut, size),
-			boost::bind(&session::handle_write, this,
-			boost::asio::placeholders::error));
-	}
+      boost::asio::write(*sock, boost::asio::buffer(data, length));
+    }
+  }
+  catch (std::exception& e)
+  {
+    std::cerr << "Exception in thread: " << e.what() << "\n";
+  }
+}
 
-	void handle_read(const boost::system::error_code& error,
-		size_t bytes_transferred)
-	{
-		if (!error)
-		{
-			boost::asio::async_write(socket_,
-				boost::asio::buffer(data_, bytes_transferred),
-				boost::bind(&session::handle_write, this,
-				boost::asio::placeholders::error));
-		}
-		else
-		{
-			delete this;
-		}
-	}
-
-	void handle_write(const boost::system::error_code& error)
-	{
-		if (!error)
-		{
-			socket_.async_read_some(boost::asio::buffer(data_, max_length),
-				boost::bind(&session::handle_read, this,
-				boost::asio::placeholders::error,
-				boost::asio::placeholders::bytes_transferred));
-		}
-		else
-		{
-			delete this;
-		}
-	}
-
-private:
-	tcp::socket socket_;
-	enum { max_length = 1024 };
-	char data_[max_length];
-};
-
-class server
+socket_ptr server(boost::asio::io_service& io_service, short port)
 {
-public:
-	server(boost::asio::io_service& io_service, short port)
-		: io_service_(io_service),
-		acceptor_(io_service, tcp::endpoint(tcp::v4(), port))
-	{
-		session* new_session = new session(io_service_);
-		acceptor_.async_accept(new_session->socket(),
-			boost::bind(&server::handle_accept, this, new_session,
-			boost::asio::placeholders::error));
-	}
-
-	void handle_accept(session* new_session,
-		const boost::system::error_code& error)
-	{
-		if (!error)
-		{
-			new_session->start();
-			new_session = new session(io_service_);
-			acceptor_.async_accept(new_session->socket(),
-				boost::bind(&server::handle_accept, this, new_session,
-				boost::asio::placeholders::error));
-			std::cout<<"New Client Connected"<<std::endl;
-		}
-		else
-		{
-			delete new_session;
-		}
-	}
-
-private:
-	boost::asio::io_service& io_service_;
-	tcp::acceptor acceptor_;
-};
+  tcp::acceptor a(io_service, tcp::endpoint(tcp::v4(), port));
+  //for (;;)//only get one client
+    socket_ptr sock(new tcp::socket(io_service));
+	
+    a.accept(*sock);
+    //boost::thread t(boost::bind(session, sock));
+	return sock;
+}
