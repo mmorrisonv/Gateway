@@ -3,19 +3,22 @@
 					   xmlns:s="library://ns.adobe.com/flex/spark" 
 					   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:gateway="com.poc.gateway.*" xmlns:view="com.poc.gateway.view.*"
 					   width="100%" height="100%" minWidth="900" minHeight="600"
-					   showStatusBar="false" title="Pros1 Event Gateway App">
+					   showStatusBar="false" title="Pros1 Event Gateway App"
+					   creationComplete="windowedapplication1_creationCompleteHandler(event)">
 	<fx:Declarations>
-		<gateway:GatewayContext contextView="{this}"/>
-	
+		<gateway:GatewayContext id="context" contextView="{this}"/>
+		
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
 			import com.poc.gateway.controller.RFIDScanner;
+			import com.poc.gateway.controller.SwipeCommandTriggerEvent;
+			import com.poc.gateway.controller.events.CustomEvent;
 			
 			import mx.events.FlexEvent;
 			//styleManager.loadStyleDeclarations("assets/style/fonts.swf");			
 			public var rfider:RFIDScanner = new RFIDScanner();
-
+			
 			
 			protected function label1_clickHandler(event:MouseEvent):void
 			{
@@ -25,6 +28,25 @@
 				catch(e:Error){
 				}
 				rfider.connect('localhost',5524);
+			}
+			
+			protected function windowedapplication1_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.rfider.addEventListener('swiped',onExternalSwipe);
+				try{
+					rfider.disconnect();
+				}
+				catch(e:Error){
+				}
+				rfider.connect('localhost',5524);
+			}
+			
+			protected function onExternalSwipe(event:CustomEvent):void
+			{
+				//this.context.dis
+				var e:SwipeCommandTriggerEvent = new SwipeCommandTriggerEvent(
+					SwipeCommandTriggerEvent.PROCESS_CARD_SWIPE,event.data.toString() );
+				this.context.dispatchEvent(e);
 			}
 			
 		]]>
@@ -39,7 +61,7 @@
 			</s:RadialGradient>
 		</s:fill>
 	</s:Rect>
-		
+	
 	
 	<s:VGroup width="900" height="600" horizontalCenter="0" verticalCenter="0"
 			  paddingBottom="30" paddingTop="30" paddingLeft="30" paddingRight="30">
@@ -49,7 +71,7 @@
 			<s:Rect width="100%" height="1" bottom="0" visible="false"><s:fill><s:SolidColor color="0x333333"/></s:fill></s:Rect>
 		</s:Group>
 		
-			
+		
 		<s:Group width="100%" height="100%">
 			
 			<!-- Left Column -->
@@ -58,16 +80,16 @@
 					<s:fill><s:SolidColor color="0xffffff"/></s:fill>
 					<s:stroke><s:SolidColorStroke color="0xdcdcdc"/></s:stroke>
 				</s:Rect>
-				<s:VGroup width="200" height="400" paddingTop="20" paddingLeft="20" paddingRight="20">
+				<s:VGroup width="200" height="100%" paddingTop="20" paddingLeft="20" paddingRight="20" paddingBottom="20">
 					
-					<view:EntryLog width="170" height="340" horizontalCenter="0" />
-
+					<view:EntryLog width="170" height="100%" horizontalCenter="0" />
+					
 				</s:VGroup>
-
-			</s:Group>
-
 				
-
+			</s:Group>
+			
+			
+			
 			
 			<!-- Middle Column -->
 			<s:Group width="610" height="100%" right="0" clipAndEnableScrolling="true">
@@ -79,20 +101,20 @@
 				<view:PanelSwipeEntry width="100%" height="100%" />
 				
 				<view:PanelEventSettings width="100%" height="80" y="190" visible="true" />
-				<view:PanelPersonInspector width="100%" height="100" y="190" visible="false"/>
+				<view:PanelPersonInspector width="100%" height="100" y="100" visible="true"/>
 				<view:PanelPersonCreator width="100%" height="250" y="280" />
 				
 			</s:Group>	
 		</s:Group>
-			
-			
-	
-			
+		
+		
+		
+		
 		
 	</s:VGroup>
 	
-
 	
 	
-
+	
+	
 </s:WindowedApplication>

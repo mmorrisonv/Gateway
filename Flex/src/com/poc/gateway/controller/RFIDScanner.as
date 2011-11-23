@@ -1,13 +1,16 @@
 package com.poc.gateway.controller
 {
+	import com.poc.gateway.controller.events.CustomEvent;
+	
 	import flash.events.Event;
+	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
 	import flash.events.ProgressEvent;
 	import flash.net.Socket;
 	
 	import mx.controls.Alert;
 	
-	public class RFIDScanner
+	public class RFIDScanner extends EventDispatcher
 	{
 		
 		
@@ -48,8 +51,8 @@ package com.poc.gateway.controller
 		private function onConnect(event:Event):void
 		{
 			// dispatchEvent(...)
-			trace('connect');
-			Alert.show('connect');
+			trace('connected');
+			//Alert.show('connect');
 		}
 		
 		/**
@@ -71,6 +74,10 @@ package com.poc.gateway.controller
 			try
 			{
 				var temp:String = _socket.readMultiByte(_socket.bytesAvailable, "ISO-8859-1");
+				//remove newlines
+				temp = temp.replace('\n','');
+				temp = temp.replace('\r','');
+				this.dispatchEvent( new CustomEvent('swiped',temp) );
 				trace('got something' + temp);
 				//Alert.show('got something' + temp);
 				// process buffer, throw an event, whatever you want
